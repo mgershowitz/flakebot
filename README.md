@@ -16,7 +16,13 @@ https://www.twilio.com/api
 ### PostgreSQL Users
 The is a user database so that individual users can select their own set of events and text back and forth with flakebot
 
-## Technologies
+## Features/Technologies
+### React.js & Node.js
+This will be a RENS app where each of the 4 pages will be brought up based on state. Will possibly use React Router. AJAX calls will be made with the fetch and request method.
+
+### User authentication
+This app has user authentication so that users can save their individual events and have relevant conversations with FlakeBot
+
 ### cron/at jobs
 These will be used to interface with flake bot so that you can check on the timing of your events and so that flake bot can send you reminders and apoligies when you event occurs.
 http://www.thesitewizard.com/general/set-cron-job.shtml

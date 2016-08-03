@@ -16,6 +16,11 @@ https://www.twilio.com/api
 ### PostgreSQL Users
 The is a user database so that individual users can select their own set of events and text back and forth with flakebot
 
+## Technologies
+### cron/at jobs
+These will be used to interface with flake bot so that you can check on the timing of your events and so that flake bot can send you reminders and apoligies when you event occurs.
+http://www.thesitewizard.com/general/set-cron-job.shtml
+
 ## Wireframes
 
 ### Mainpage

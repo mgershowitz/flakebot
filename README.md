@@ -15,3 +15,14 @@ Twilio allows messages to be sent from a users phone number, which is then parse
 https://www.twilio.com/api
 ### PostgreSQL Users
 The is a user database so that individual users can select their own set of events and text back and forth with flakebot
+
+## Wireframes
+
+### Mainpage
+![](http://i.imgur.com/FUkHTMF.png)
+### Click on Event
+![](http://i.imgur.com/G1rg9z0.png)
+### My Events
+![](http://i.imgur.com/wjW4vBa.png)
+### My Event details
+![](http://i.imgur.com/zeiKIQh.png)

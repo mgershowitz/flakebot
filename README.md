@@ -8,4 +8,10 @@ Flakebot allows you to search for upcoming events s by keyword, location, time p
 
 ## APIs
 ### Eventful
+this API allows you to search for upcoming events by keyword, location, time, category, performer, or venue
 http://api.eventful.com/docs..
+### Twilio
+Twilio allows messages to be sent from a users phone number, which is then parsed as HTTP and then interpreted by the app. This is the secondary method to interact with Flakebot
+https://www.twilio.com/api
+### PostgreSQL Users
+The is a user database so that individual users can select their own set of events and text back and forth with flakebot

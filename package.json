@@ -11,7 +11,6 @@
     "build": "webpack --progress --colors",
     "start": "node server.js"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mgershowitz/flakebot.git"
@@ -29,6 +28,7 @@
     "express": "^4.14.0",
     "jsonwebtoken": "^7.1.6",
     "morgan": "^1.7.0",
+    "node-cron": "^1.1.1",
     "path": "^0.12.7",
     "pg-promise": "^5.2.0",
     "request": "^2.74.0"

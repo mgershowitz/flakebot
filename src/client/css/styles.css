@@ -5,6 +5,10 @@
   line-height: 11px     !important;
 }
 
+body {
+  background-color: #ccc;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -16,29 +20,146 @@
 .header {
   position: fixed;
   width: 107%;
-  background-color: #607D8B;
+  background-color: #777;
   height: 10%;
   top: 0;
+  z-index: 1;
+  /*box-shadow: 3px 3px 3px #777;*/
 }
 .header h1 {
+  position: absolute;
   color: white;
   font-family: impact;
-  top: 3%;
+  top: -20%;
   height:7%;
   margin-left: 2%;
 }
 
 .search {
-  position: fixed;
+  position: absolute;
   width: 107%;
-  height: 9vh;
+  height: 70vh;
   top: 10%;
-  background-color: #CFD8DC;
+  /*background-image: url('http://i.imgur.com/hMOXz6T.jpg');*/
+  background-image: url('http://i.imgur.com/mdTuH3I.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .search form {
-  margin-top: 1%;
-  margin-left: 2%;
+  position: absolute;
+  top: 40%;
+  left: 27%;
+}
+
+.search input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    /*box-shadow: 3px 3px 3px #777;*/
+}
+
+.searchDetail {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  height: 100vh;
+  top: 10%;
+  background-color: #ccc;
+}
+
+.searchDetail form {
+  position: absolute;
+  top: 15%;
+  left: 2%;
+  margin-bottom: 2%;
+}
+
+.searchDetail input[type=text] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.searchDetail input[type=select] {
+  margin-bottom: 2%;
+}
+
+.eventResults, .selectedEvent {
+  text-align: center;
+  background-color:white;
+  display: inline-block;
+  padding-top: 7%;
+  /*padding-left: 5%;*/
+  width: 75%;
+}
+
+.selectedEvent{
+  height: 100vh;
+}
+
+.eventImage {
+  width: 18vw;
+  vertical-align: top;
+  margin-top: -23%;
+}
+.nullEventImage {
+  width: 18vw;
+  vertical-align: top;
+}
+
+.imageContainer {
+  height: 20vh;
+  width: 18vw;
+  border: 2px solid black;
+  overflow: hidden;
+}
+.selectImageContainer {
+  height: 20vh;
+  width: 18vw;
+  margin-left: 37%;
+  /*border: 2px solid black;*/
+  overflow: hidden;
+}
+
+.infoContainer {
+  display: inline-block;
+  text-align: left;
+  margin-left: 4%;
+  margin-bottom: 5%;
+  height: 30vh;
+  width: 18vw;
+  vertical-align: top;
+  background-color: #888;
+  color: #ffffff;
+}
+
+.infoContainer h5, .infoContainer h6 {
+  padding-left: 2%;
+}
+.sideContainer {
+ height: 10vh;
+ width: 24vw;
+ border: 1px solid black;
+ display: inline-block;
+ overflow: hidden;
+}
+.sideContainer p {
+  display: inline;
+  /*color:#ffffff;*/
+  font-weight: bold;
+  padding-left: 2%;
+}
+.sideEventImage {
+  width:10vw;
+  margin-top: -10%;
+  display: inline-block;
+}
+.nullSideEventImage {
+  width:10vw;
+  display: inline-block;
 }
 
 /*Button temlpate taken from http://www.bestcssbuttongenerator.com/#/25*/
@@ -83,39 +204,3 @@
   position:relative;
   top:1px;
 }
-
-
-
-.eventResults {
-  /*text-align: center;*/
-  margin-top: 12%;
-  width: 100%;
-}
-
-
-
-.eventImage {
-  width: 18vw;
-  position: absolute;
-  object-fit: cover;
-  /*height: 20vh;*/
-  border: 2px solid black;
-}
-
-.imageContainer {
-  display: inline-block;
-  margin-left: 4%;
-  margin-bottom: 15%;
-  height: 33vh;
-  width: 18vw;
-  vertical-align: top;
-  background-color: #607D8B;
-}
-
-
-
-
-
-
-
-

@@ -1,22 +1,16 @@
 import React            from 'react'
-import Search           from './Search.jsx'
+import SearchInitial    from './SearchInitial.jsx'
+import SearchDetail     from './SearchDetail.jsx'
 import Results          from './Results.jsx'
+import SideResults      from './SideResults.jsx'
+import SelectedResults  from './SelectedResults.jsx'
 import ajax             from '../helpers/ajaxAdapter.js'
 import util             from '../helpers/util.js'
-var cron = require('node-cron');
 // import Login            from './Login.jsx'
 // import CreateUser       from './CreateUser.jsx'
 
 
-  cron.schedule('* * * * *', ()=>{
-    ajax.eventsCall('new york').then(res => {
-          console.log(res.event)
-          this.setState({
-          results: res.event,
-          searched: true
-        })
-      })
-  });
+
 export default class SearchContainer extends React.Component {
 
   constructor(){
@@ -24,8 +18,11 @@ export default class SearchContainer extends React.Component {
     this.state = {
       location: "",
       keyword: "",
-      searched: false,
+      time: 'Today',
       results: [],
+      singleResult: [],
+      searched: false,
+      selected: false,
       flakeBot: false
     }
   }
@@ -51,9 +48,15 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  handleUpdateTimeSearch(event){
+    this.setState({
+      time: event.target.value
+    })
+  }
+
   handleSubmitSearch(event){
   event.preventDefault();
-  ajax.eventsCall(this.state.location).then(res => {
+  ajax.eventsCall(this.state.location,this.state.time).then(res => {
         console.log(res.event)
         this.setState({
         results: res.event,
@@ -63,6 +66,17 @@ export default class SearchContainer extends React.Component {
   event.target.reset()
   }
 
+ selectEventDetail(event){
+    event.preventDefault();
+    console.log(event.target.alt)
+    ajax.eventDetailCall(event.target.alt).then( event =>{
+      console.log(event)
+      this.setState({
+        singleResult: event,
+        selected: true
+      })
+    })
+  }
 
 // addToPantry(event){
 //   event.preventDefault();
@@ -87,65 +101,35 @@ export default class SearchContainer extends React.Component {
 // }
 
 
- // selectRecipe(event){
- //    event.preventDefault();
- //    console.log(event.target.alt)
- //    //ajax.secondCall(event.target.alt)
- //    ajax.recipeCall(event.target.alt)
- //    .then( cuisine =>{
- //      this.setState({
- //        results: cuisine,
- //        query: "",
- //        selected: true
- //      })
- //    })
- //  }
 
 
   render(){
-     //  if(this.state.searched&&this.state.selected){
-     //  return (
+      if(this.state.searched&&this.state.selected){
+      return (
+        <div>
+            <SideResults
+            onSelectEvent={this.selectEventDetail.bind(this)}
+            events={this.state.results}
+            />
+           <SelectedResults
+            event={this.state.singleResult}
+            />
+          </div>
+        )
 
-     //      <div className="row">
-     //        <SmallLogo />
-     //        <div className="col-sm-4">
-
-     //          <Ingredients
-     //            addToPantry={this.addToPantry.bind(this)}
-     //            recipes={this.state.results}
-     //           />
-     //        </div>
-
-     //        <div className="col-sm-4">
-     //          <ResultsSelected
-     //          recipes={this.state.results}
-     //          onSelectRecipe={this.selectRecipe.bind(this)}
-     //          dropdown={this.state.dropdown}
-     //          />
-     //        </div>
-
-     //        <div className="col-sm-4">
-     //          <Pantry
-     //            deletePantry={this.deleteFromPantry.bind(this)}
-     //            pantry={this.state.pantry}
-     //          />
-
-     //        </div>
-     //    </div>
-     //    )
-
-     // } else
-     if(this.state.searched){
+     } else if(this.state.searched){
       return (
           <div>
-            <Search
+            <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
+            onUpdateTimeSearch={this.handleUpdateTimeSearch.bind(this)}
             onSubmitSearch={this.handleSubmitSearch.bind(this)}
             location={this.state.location}
             keyword={this.state.keyword}
             />
             <Results
+            onSelectEvent={this.selectEventDetail.bind(this)}
             events={this.state.results}
             />
           </div>
@@ -153,7 +137,7 @@ export default class SearchContainer extends React.Component {
       } else {
       return(
         <div>
-          <Search
+          <SearchInitial
           onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
           onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
           onSubmitSearch={this.handleSubmitSearch.bind(this)}

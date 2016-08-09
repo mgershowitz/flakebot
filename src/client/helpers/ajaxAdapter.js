@@ -4,10 +4,16 @@ const ajaxAdapter = {
     if(!fetch) throw "We need the Fetch brah";
   },
 
-  eventsCall(location) {
+  eventsCall(location,time) {
     console.log(location)
-    return fetch('/events?location='+location)
+    return fetch('/events?location='+location+'&time='+time)
     .then(res => res.json() )
+  },
+
+  eventDetailCall(id) {
+    console.log(id)
+    return fetch('/events/event?id='+id)
+    .then(res => res.json())
   }
 
   // createUser(newUser){

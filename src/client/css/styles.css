@@ -97,13 +97,13 @@ body {
 }
 
 .selectedEvent{
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .eventImage {
   width: 18vw;
   vertical-align: top;
-  margin-top: -23%;
+  margin-top: -21%;
 }
 .nullEventImage {
   width: 18vw;
@@ -148,7 +148,7 @@ body {
 }
 .sideContainer p {
   display: inline;
-  /*color:#ffffff;*/
+  margin: 0 5% 0 5%;
   font-weight: bold;
   padding-left: 2%;
 }

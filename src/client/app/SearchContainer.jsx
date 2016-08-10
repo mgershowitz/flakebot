@@ -78,6 +78,12 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  returnToSearch(event){
+    event.preventDefault();
+    this.setState({
+      selected: false
+    })
+  }
 // addToPantry(event){
 //   event.preventDefault();
 //   let item = {item:event.target.value}
@@ -112,6 +118,7 @@ export default class SearchContainer extends React.Component {
             events={this.state.results}
             />
            <SelectedResults
+            onReturnToSearch={this.returnToSearch.bind(this)}
             event={this.state.singleResult}
             />
           </div>

@@ -102,37 +102,31 @@ export default class SearchContainer extends React.Component {
       })
     })
   }
-// addToPantry(event){
-//   event.preventDefault();
-//   let item = {item:event.target.value}
-//   console.log()
-//   ajax.addPantry(item).then(pantry=>{
-//   ajax.pantryCall().then(pantry=>{
-//       this.setState({ pantry: pantry,
-//        })
 
-//     })})
-//   }
+  userLogIn(){
+    this.setState({
+      user:true,
+      searched:true
+    })
+  }
 
-// deleteFromPantry(event){
-//   event.preventDefault();
-//   let item = {item: event.target.value}
-//   ajax.deletePantry(item).then(pantry=>{
-//     ajax.pantryCall().then(pantry=>{
-//       this.setState({pantry: pantry})
-//     })
-//   })
-// }
-
-
-
+  userLogOut(){
+    this.setState({
+      user:false,
+      searched:false,
+      selected:false,
+      results: []
+    })
+  }
 
   render(){
       if(this.state.searched&&this.state.selected){
       return (
         <div>
             <Header
-            user={this.state.user} />
+            user={this.state.user}
+            userLoggedIn={this.userLogIn.bind(this)}
+            userLoggedOut={this.userLogOut.bind(this)} />
             <SideResults
             onSelectEvent={this.selectEventDetail.bind(this)}
             events={this.state.results}
@@ -148,7 +142,9 @@ export default class SearchContainer extends React.Component {
       return (
           <div>
             <Header
-            user={this.state.user} />
+            user={this.state.user}
+            userLoggedIn={this.userLogIn.bind(this)}
+            userLoggedOut={this.userLogOut.bind(this)} />
             <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -167,7 +163,9 @@ export default class SearchContainer extends React.Component {
       return(
         <div>
           <Header
-            user={this.state.user} />
+            user={this.state.user}
+            userLoggedIn={this.userLogIn.bind(this)}
+            userLoggedOut={this.userLogOut.bind(this)} />
           <SearchInitial
           onCreateUser={this.createUser.bind(this)}
           onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}

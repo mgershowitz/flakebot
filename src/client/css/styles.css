@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #ccc;
+  background-color: #ddd;
 }
 
 .footer {
@@ -109,6 +109,8 @@ body {
 }
 
 .eventResults, .selectedEvent {
+  /*position: fixed;
+  overflow-y: scroll;*/
   text-align: center;
   background-color:white;
   display: inline-block;
@@ -187,9 +189,10 @@ body {
   position: absolute;
   top: 5%;
   right: 10%;
+}
+.signIn label {
   color: #ffffff;
 }
-
 /*Button temlpate taken from http://www.bestcssbuttongenerator.com/#/25*/
 .myButton {
   -moz-box-shadow:inset 0px 1px 0px 0px #CFD8DC;

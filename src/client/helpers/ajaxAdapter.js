@@ -25,6 +25,17 @@ const ajaxAdapter = {
       body: JSON.stringify(newUser)
     })
     .then( r=> r.json() )
+  },
+
+  loginUser(user){
+    return fetch('/api/authenticate',{
+      method:'POST',
+      headers:{
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify(user)
+    })
+    .then( r => r.json())
   }
 
 // addPantry(item){

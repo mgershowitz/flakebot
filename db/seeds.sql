@@ -1,22 +1,15 @@
-insert into users (name, email, password_digest)
- VALUES
-  ('test', 'test', 'test'),
-  ( 'Chandler', 'cbasso@gmail.com', 'ptest1'),
-  ( 'Arlen', 'acho@gmail.com', 'ptest2'),
-  ( 'Matt', 'mattg@gmail.com', 'ptest3'),
-  ( 'Michael', 'mwerbo2@gmail.com', 'ptest4');
+-- insert into users (username, email, phone_number, password_digest)
+--  VALUES
+--   ( 'whiskers', 'cat@gmail.com', 234567809, 'password'),
+--   ( 'penny', 'dog@gmail.com', 6314236834, 'ptest2');
 
 
 
-insert into favorite_recipes (recipe_id, recipe_name, recipe_url, img_link) VALUES
+insert into saved_events (user_reference, event_id) VALUES
 
-  ('562994', 'Char grilled beef', 'http://www.epicurious.com/recipes/food/views/Char-Grilled-Beef-Tenderloin-with-Three-Herb-Chimichurri-235342', 'https://spoonacular.com/recipeImages/char-grilled-beef-tenderloin-with-three-herb-chimichurri-156992.jpg');
+  (1, 'E0-001-082075706-8@2016081014'),
+  (1, 'E0-001-093354769-9');
 
 
-insert into pantry_items ( ingredient_name) VALUES
 
-  ('Tomatoe'),
-  ('Apple'),
-  ('Potatoe'),
-  ('Beef'),
-  ('Big Sausage');
+

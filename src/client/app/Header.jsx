@@ -65,7 +65,21 @@ clearLocalStorage(event){
     return (
       <div className="header">
         <h1>FlakeBot</h1>
-          <button className='signIn' onClick={this.clearLocalStorage.bind(this)}>Log Out</button>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <button className='signIn' onClick={this.clearLocalStorage.bind(this)}>Log Out</button>
+                </td>
+                <td>
+                  <button className="signIn">My Events</button>
+                </td>
+                <td>
+                  <button className="signIn">Talk to FlakeBot</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
       </div>
     )
   }

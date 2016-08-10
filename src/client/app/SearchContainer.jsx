@@ -1,4 +1,5 @@
 import React            from 'react'
+import Header           from './Header.jsx'
 import SearchInitial    from './SearchInitial.jsx'
 import SearchDetail     from './SearchDetail.jsx'
 import Results          from './Results.jsx'
@@ -23,7 +24,8 @@ export default class SearchContainer extends React.Component {
       singleResult: [],
       searched: false,
       selected: false,
-      flakeBot: false
+      flakeBot: false,
+      user: false
     }
   }
 
@@ -84,6 +86,22 @@ export default class SearchContainer extends React.Component {
       selected: false
     })
   }
+
+  createUser(event){
+    event.preventDefault();
+    let newUser = {
+      username: event.target.username.value,
+      email: event.target.email.value,
+      phone: event.target.phone.value,
+      password: event.target.password.value
+    }
+    ajax.createNewUser(newUser).then(newUser =>{
+      console.log("new user created")
+      this.setState({
+        searched: true
+      })
+    })
+  }
 // addToPantry(event){
 //   event.preventDefault();
 //   let item = {item:event.target.value}
@@ -113,6 +131,8 @@ export default class SearchContainer extends React.Component {
       if(this.state.searched&&this.state.selected){
       return (
         <div>
+            <Header
+            user={this.state.user} />
             <SideResults
             onSelectEvent={this.selectEventDetail.bind(this)}
             events={this.state.results}
@@ -127,6 +147,8 @@ export default class SearchContainer extends React.Component {
      } else if(this.state.searched){
       return (
           <div>
+            <Header
+            user={this.state.user} />
             <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -144,7 +166,10 @@ export default class SearchContainer extends React.Component {
       } else {
       return(
         <div>
+          <Header
+            user={this.state.user} />
           <SearchInitial
+          onCreateUser={this.createUser.bind(this)}
           onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
           onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
           onSubmitSearch={this.handleSubmitSearch.bind(this)}

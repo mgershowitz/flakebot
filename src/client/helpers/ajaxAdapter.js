@@ -14,18 +14,18 @@ const ajaxAdapter = {
     console.log(id)
     return fetch('/events/event?id='+id)
     .then(res => res.json())
-  }
+  },
 
-  // createUser(newUser){
-  //   return fetch('/api/users',{
-  //     method:'POST',
-  //     headers:{
-  //       "Content-type": "application/json; charset=UTF-8"
-  //     },
-  //     body: JSON.stringify(newUser)
-  //   })
-  //   .then( r=> r.json() )
-  // },
+  createNewUser(newUser){
+    return fetch('/api/users',{
+      method:'POST',
+      headers:{
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify(newUser)
+    })
+    .then( r=> r.json() )
+  }
 
 // addPantry(item){
 //     console.log(item)

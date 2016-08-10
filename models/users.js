@@ -52,9 +52,9 @@ module.exports = {
     createSecure( req.body.password )
      .then( hash => {
         _db.one(`
-          INSERT INTO users (name, email, phone_number, password_digest)
+          INSERT INTO users (username, email, phone_number, password_digest)
           VALUES ($1, $2, $3, $4)
-          returning *;`, [req.body.name, req.body.email, req.body.phone, hash]
+          returning *;`, [req.body.username, req.body.email, req.body.phone, hash]
         )
         .then( newUser=> {
           console.log( newUser )

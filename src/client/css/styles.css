@@ -35,11 +35,24 @@ body {
   margin-left: 2%;
 }
 
-.search {
+.search, .signUp {
   position: absolute;
-  width: 107%;
+  width: 50%;
   height: 70vh;
   top: 10%;
+  text-align: center;
+}
+
+.signUp {
+  left: 50%;
+}
+.imgContainer {
+  position: absolute;
+  width: 70%;
+  height: 40vh;
+  top: 20%;
+  left: 20%;
+  border: 5px solid white;
   /*background-image: url('http://i.imgur.com/hMOXz6T.jpg');*/
   background-image: url('http://i.imgur.com/mdTuH3I.jpg');
   background-size: cover;
@@ -48,11 +61,19 @@ body {
 
 .search form {
   position: absolute;
-  top: 40%;
-  left: 27%;
+  top: 80%;
+  left: 20%;
 }
 
-.search input[type=text] {
+.signUp form {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+}
+
+
+
+.search input[type=text], .signUp input[type=text], .signUp input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -160,6 +181,13 @@ body {
 .nullSideEventImage {
   width:10vw;
   display: inline-block;
+}
+
+.signIn {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  color: #ffffff;
 }
 
 /*Button temlpate taken from http://www.bestcssbuttongenerator.com/#/25*/

@@ -11,7 +11,6 @@ export default class App extends React.Component{
         return(
           <container>
               <div>
-                <Header />
                 <SearchContainer />
                 <Footer />
               </div>

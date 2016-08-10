@@ -37,3 +37,8 @@ http://www.thesitewizard.com/general/set-cron-job.shtml
 ![](http://i.imgur.com/wjW4vBa.png)
 ### My Event details
 ![](http://i.imgur.com/zeiKIQh.png)
+
+
+## references
+
+http://stackoverflow.com/questions/17415579/how-to-iso-8601-format-a-date-with-timezone-offset-in-javascript

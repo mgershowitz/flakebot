@@ -1,25 +1,30 @@
 import React from 'react';
 import ajax  from '../helpers/ajaxAdapter.js'
+const jwtDecode = require('jwt-decode');
 
 export default class Header extends React.Component {
   handleSubmit(event){
   event.preventDefault()
+  let thing = event.target
   let user = {
     username: event.target.username.value,
     password: event.target.password.value
   }
   ajax.loginUser(user).then( user => {
-      console.log(user.message)
+      console.log(user)
       localStorage.setItem('token', user.token)
-      localStorage.setItem('user', user.username)
+      localStorage.setItem('user_id', jwtDecode(user.token).user_id)
+      console.log(jwtDecode(user.token).user_id)
+      if(user.success){
+        this.props.userLoggedIn()
+      } else {
+        thing.reset()
       }
-    ).then(
-    this.props.userLoggedIn()
+    }
     )
   }
 
 clearLocalStorage(event){
-  event.preventDefault()
   localStorage.setItem('token','')
   localStorage.setItem('user','')
   console.log('brah!? you leavin?')
@@ -71,12 +76,12 @@ clearLocalStorage(event){
                 <td>
                   <button className='signIn' onClick={this.clearLocalStorage.bind(this)}>Log Out</button>
                 </td>
-                <td>
+                {/*<td>
                   <button className="signIn">My Events</button>
                 </td>
                 <td>
                   <button className="signIn">Talk to FlakeBot</button>
-                </td>
+                </td>*/}
               </tr>
             </tbody>
           </table>

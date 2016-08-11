@@ -15,9 +15,12 @@ users.post('/',
 
 // users.use( tokenService.validateToken )
 
+
 users.get('/', db.listUsers, (req,res)=>
   res.json( res.users))
 
+users.get('/:id', db.getUserEvents, (req,res)=>
+  res.json(res.events))
 
 module.exports = users;
 

@@ -16,6 +16,11 @@ const ajaxAdapter = {
     .then(res => res.json())
   },
 
+  getMyEvents(id){
+    return fetch ('/api/users/'+id)
+    .then(res => res.json())
+  },
+
   createNewUser(newUser){
     return fetch('/api/users',{
       method:'POST',
@@ -37,35 +42,6 @@ const ajaxAdapter = {
     })
     .then( r => r.json())
   }
-
-// addPantry(item){
-//     console.log(item)
-//     return fetch('/pantry',{
-//       method:'POST',
-//       headers:{
-//         "Content-type": "application/json; charset=UTF-8"
-//       },
-//       body: JSON.stringify(item)
-//     })
-//     .then( r=> r.json() )
-//   },
-
-// deletePantry(item){
-//     return fetch('/pantry',{
-//       method:'DELETE',
-//       headers:{
-//         "Content-type": "application/json; charset=UTF-8"
-//       },
-//       body: JSON.stringify(item)
-//     })
-//     .then( r=> console.log(r) )
-//   },
-
-//   pantryCall() {
-//     return fetch('/pantry')
-//     .then(res=>res.json())
-//     }
-
 }
 
 

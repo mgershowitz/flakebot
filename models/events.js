@@ -24,6 +24,7 @@ module.exports = {
       next()
     })
   },
+
   getEventDetail(req,res,next){
     request({
         url:'http://api.eventful.com/json/events/get',

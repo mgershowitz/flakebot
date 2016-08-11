@@ -3,13 +3,11 @@ import Header           from './Header.jsx'
 import SearchInitial    from './SearchInitial.jsx'
 import SearchDetail     from './SearchDetail.jsx'
 import Results          from './Results.jsx'
+import Profile          from './Profile.jsx'
 import SideResults      from './SideResults.jsx'
 import SelectedResults  from './SelectedResults.jsx'
 import ajax             from '../helpers/ajaxAdapter.js'
 import util             from '../helpers/util.js'
-// import Login            from './Login.jsx'
-// import CreateUser       from './CreateUser.jsx'
-
 
 
 export default class SearchContainer extends React.Component {
@@ -22,21 +20,28 @@ export default class SearchContainer extends React.Component {
       time: 'Today',
       results: [],
       singleResult: [],
+      userEvents:[],
       searched: false,
       selected: false,
-      flakeBot: false,
-      user: false
+      user: false,
+      savedSelected: false,
+      flakeBot: false
     }
   }
 
 
-  //  componentDidMount(){
-  //   // go to the db and get all the tasks
-  //   ajax.pantryCall().then(pantry=>{
-  //     // when the data comes back, update the state
-  //     this.setState({ pantry: pantry })
-  //   })
-  // }
+   componentDidMount(){
+    if(localStorage.token){
+      ajax.getMyEvents(localStorage.user_id).then( myEvents => {
+        this.setState({
+          userEvents: myEvents,
+          user:true
+        })
+      })
+    }
+  }
+
+
 
   handleUpdateLocationSearch(event){
     this.setState({
@@ -89,24 +94,40 @@ export default class SearchContainer extends React.Component {
 
   createUser(event){
     event.preventDefault();
+    let thing = event.target
     let newUser = {
       username: event.target.username.value,
       email: event.target.email.value,
       phone: event.target.phone.value,
       password: event.target.password.value
     }
-    ajax.createNewUser(newUser).then(newUser =>{
-      console.log("new user created")
-      this.setState({
-        searched: true
-      })
-    })
-  }
+    let user = {
+      username: event.target.username.value,
+      password: event.target.password.value
+    }
+    ajax.createNewUser(newUser).then(
+      setTimeout(()=>{
+      ajax.loginUser(user).then( user => {
+          console.log(user)
+          localStorage.setItem('token', user.token)
+          localStorage.setItem('username', user.username)
+          if(user.success){
+            this.userLogIn()
+          } else {
+            thing.reset()
+          }
+        })}, 500)
+      )
+    }
 
   userLogIn(){
-    this.setState({
-      user:true,
-      searched:true
+    ajax.getMyEvents(localStorage.user_id).then( myEvents => {
+      console.log(myEvents)
+      this.setState({
+        userEvents: myEvents,
+        user:true,
+        test:false
+      })
     })
   }
 
@@ -121,6 +142,7 @@ export default class SearchContainer extends React.Component {
 
   render(){
       if(this.state.searched&&this.state.selected){
+      //Page if single event is selected
       return (
         <div>
             <Header
@@ -139,6 +161,7 @@ export default class SearchContainer extends React.Component {
         )
 
      } else if(this.state.searched){
+      //page if searched
       return (
           <div>
             <Header
@@ -159,7 +182,48 @@ export default class SearchContainer extends React.Component {
             />
           </div>
         )
+      } else if(this.state.user&&this.state.savedSelected){
+        //Page if saved event is selected
+        return(
+        <div>
+          <Header
+            user={this.state.user}
+            userLoggedIn={this.userLogIn.bind(this)}
+            userLoggedOut={this.userLogOut.bind(this)} />
+          <MyEvents
+            onSelectEvent={this.selectEventDetail.bind(this)}
+            events={this.state.userEvents}
+            />
+            <SelectedResults
+            onReturnToSearch={this.returnToSearch.bind(this)}
+            event={this.state.singleResult}
+            />
+          </div>
+          )
+      //Landing Page if user is logged in
+      } else if(this.state.user){
+        return(
+        <div>
+          <Header
+            user={this.state.user}
+            userLoggedIn={this.userLogIn.bind(this)}
+            userLoggedOut={this.userLogOut.bind(this)} />
+          <SearchDetail
+            onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
+            onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
+            onUpdateTimeSearch={this.handleUpdateTimeSearch.bind(this)}
+            onSubmitSearch={this.handleSubmitSearch.bind(this)}
+            location={this.state.location}
+            keyword={this.state.keyword}
+            />
+            <Profile
+            onSelectEvent={this.selectEventDetail.bind(this)}
+            events={this.state.userEvents}
+            />
+          </div>
+          )
       } else {
+      //Landing Page
       return(
         <div>
           <Header
@@ -167,13 +231,12 @@ export default class SearchContainer extends React.Component {
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)} />
           <SearchInitial
-          onCreateUser={this.createUser.bind(this)}
-          onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
-          onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
-          onSubmitSearch={this.handleSubmitSearch.bind(this)}
-          location={this.state.location}
-          keyword={this.state.keyword}
-          />
+            onCreateUser={this.createUser.bind(this)}
+            onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
+            onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
+            onSubmitSearch={this.handleSubmitSearch.bind(this)}
+            location={this.state.location}
+            keyword={this.state.keyword} />
           </div>
       )
     }

@@ -19,7 +19,9 @@ CREATE TABLE saved_events (
 saved_id SERIAL PRIMARY KEY NOT NULL,
 user_reference INTEGER REFERENCES users(user_id),
 event_id TEXT NOT NULL,
-event_time timestamp NOT NULL default now()
+title TEXT NOT NULL,
+image TEXT NOT NULL,
+event_time TEXT NOT NULL
 );
 
 

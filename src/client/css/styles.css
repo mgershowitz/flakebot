@@ -20,11 +20,11 @@ body {
 .header {
   position: fixed;
   width: 107%;
-  background-color: #777;
+  background-color: #673AB7;
   height: 10%;
   top: 0;
   z-index: 1;
-  /*box-shadow: 3px 3px 3px #777;*/
+  /*box-shadow: 3px 3px 3px #673AB7;*/
 }
 .header h1 {
   position: absolute;
@@ -78,7 +78,7 @@ body {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    /*box-shadow: 3px 3px 3px #777;*/
+    /*box-shadow: 3px 3px 3px #673AB7;*/
 }
 
 .searchDetail {
@@ -129,7 +129,7 @@ body {
   margin-top: -21%;
 }
 .nullEventImage {
-  width: 18vw;
+  width: 20vw;
   vertical-align: top;
 }
 
@@ -155,7 +155,7 @@ body {
   height: 30vh;
   width: 18vw;
   vertical-align: top;
-  background-color: #888;
+  background-color: #673AB7;
   color: #ffffff;
 }
 
@@ -194,7 +194,7 @@ body {
   color: #ffffff;
 }
 /*Button temlpate taken from http://www.bestcssbuttongenerator.com/#/25*/
-.myButton {
+/*.myButton {
   -moz-box-shadow:inset 0px 1px 0px 0px #CFD8DC;
   -webkit-box-shadow:inset 0px 1px 0px 0px #CFD8DC;
   box-shadow:inset 0px 1px 0px 0px #CFD8DC;
@@ -234,4 +234,4 @@ body {
 .myButton:active {
   position:relative;
   top:1px;
-}
+}*/

@@ -128,8 +128,8 @@ export default class SearchContainer extends React.Component {
       password: event.target.password.value
     }
     let user = {
-      username: event.target.username.value,
-      password: event.target.password.value
+      username: newUser.username,
+      password: newUser.password
     }
     ajax.createNewUser(newUser).then(
       setTimeout(()=>{

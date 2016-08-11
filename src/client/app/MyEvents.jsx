@@ -13,10 +13,12 @@ export default class MyEvents extends React.Component {
             </div>
             )
           })
-          })
+
         }
       </div>
-  }
+      )
+    }
+}
 
 
 

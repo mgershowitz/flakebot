@@ -70,24 +70,60 @@ module.exports = {
   })
 },
 
-getUserEvents( req,res,next ) {
-    console.log(req.params)
-    let uID = parseInt(req.params.id)
-    _db.any( `SELECT title, image, event_time, event_id
-      FROM users
-      JOIN saved_events
-      ON saved_events.user_reference = users.user_id
-      WHERE users.user_id = $1;`, [uID])
-       .then( userEvents => {
-        res.events = userEvents;
+  getUserEvents( req,res,next ) {
+      console.log(req.params)
+      let uID = parseInt(req.params.id)
+      _db.any( `SELECT title, image, event_time, event_id
+        FROM users
+        JOIN saved_events
+        ON saved_events.user_reference = users.user_id
+        WHERE users.user_id = $1;`, [uID])
+         .then( userEvents => {
+          res.events = userEvents;
+          next()
+         } )
+         .catch( error => {
+          console.error( 'Error', error )
+          res.error = error
+          next()
+         })
+    },
+
+  addUserEvents(req,res,next) {
+      console.log('=====', req.body)
+      let uID = parseInt(req.params.id)
+      _db.one(
+        `INSERT INTO
+        saved_events (user_reference, event_id, title, image, event_time)
+        VALUES ($1, $2, $3, $4, $5)
+        returning *;`, [uID, req.body.event_id, req.body.title, req.body.image, req.body.event_time]
+      )
+      .then(saved_events => {
+        console.log('Added event successfully');
+        res.rows = saved_events;
         next()
-       } )
-       .catch( error => {
-        console.error( 'Error', error )
-        res.error = error
-        next()
-       })
+      })
+      .catch(error =>{
+        console.error('Error in ADDING event', req.body)
+      })
+    },
+
+
+  deleteUserEvent(req,res,next) {
+    //const iID = Number.parseInt(req.params.item_id)
+    _db.none(
+      `DELETE FROM saved_events
+      WHERE title = $1;`, [req.body.title]
+    )
+    .then(() => {
+      console.log('Deleted saved_events successfully');
+      next()
+    })
+    .catch(error =>{
+      console.error('Error in DELETE saved_events', error)
+    })
   }
 }
+
 
 

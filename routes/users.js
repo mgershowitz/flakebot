@@ -13,14 +13,18 @@ users.post('/',
     (req,res) => res.status(201).json({data: 'success'}).end()
 )
 
-// users.use( tokenService.validateToken )
+users.use( tokenService.validateToken )
 
 
 users.get('/', db.listUsers, (req,res)=>
   res.json( res.users))
 
+// users.route('/')
+//   .delete(db.deletePantryItem, ( req,res ) => res.send( req.params.event_id ))
+
 users.get('/:id', db.getUserEvents, (req,res)=>
   res.json(res.events))
+  // .post(db.addUserEvent, (req,res) => res.status(201).json({data: 'success'}).end())
 
 module.exports = users;
 

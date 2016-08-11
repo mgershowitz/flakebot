@@ -4,6 +4,7 @@ import SearchInitial    from './SearchInitial.jsx'
 import SearchDetail     from './SearchDetail.jsx'
 import Results          from './Results.jsx'
 import Profile          from './Profile.jsx'
+import MyEvents         from './MyEvents.jsx'
 import SideResults      from './SideResults.jsx'
 import SelectedResults  from './SelectedResults.jsx'
 import ajax             from '../helpers/ajaxAdapter.js'
@@ -67,7 +68,8 @@ export default class SearchContainer extends React.Component {
         console.log(res.event)
         this.setState({
         results: res.event,
-        searched: true
+        searched: true,
+        savedSelected:false
       })
     })
   event.target.reset()
@@ -80,15 +82,39 @@ export default class SearchContainer extends React.Component {
       console.log(event)
       this.setState({
         singleResult: event,
-        selected: true
+        selected: true,
+        searched:false
       })
     })
   }
 
+ selectSavedEventDetail(event){
+  event.preventDefault();
+  ajax.eventDetailCall(event.target.alt).then( event =>{
+    console.log(event)
+    this.setState({
+      singleResult: event,
+      selected: false,
+      searched:false,
+      savedSelected:true,
+      results: this.state.userEvents
+    })
+  })
+}
+
   returnToSearch(event){
     event.preventDefault();
     this.setState({
-      selected: false
+      selected: false,
+      searched: true
+    })
+  }
+
+  displayUserEvents(){
+    this.setState({
+      searched:false,
+      selected:false,
+      savedSelected:false
     })
   }
 
@@ -126,7 +152,6 @@ export default class SearchContainer extends React.Component {
       this.setState({
         userEvents: myEvents,
         user:true,
-        test:false
       })
     })
   }
@@ -136,19 +161,22 @@ export default class SearchContainer extends React.Component {
       user:false,
       searched:false,
       selected:false,
+      savedSelected:false,
+      userEvents:[],
       results: []
     })
   }
 
   render(){
-      if(this.state.searched&&this.state.selected){
+      if(this.state.selected){
       //Page if single event is selected
       return (
         <div>
             <Header
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
-            userLoggedOut={this.userLogOut.bind(this)} />
+            userLoggedOut={this.userLogOut.bind(this)}
+            showUserEvents={this.displayUserEvents.bind(this)} />
             <SideResults
             onSelectEvent={this.selectEventDetail.bind(this)}
             events={this.state.results}
@@ -167,7 +195,8 @@ export default class SearchContainer extends React.Component {
             <Header
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
-            userLoggedOut={this.userLogOut.bind(this)} />
+            userLoggedOut={this.userLogOut.bind(this)}
+            showUserEvents={this.displayUserEvents.bind(this)} />
             <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -189,25 +218,27 @@ export default class SearchContainer extends React.Component {
           <Header
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
-            userLoggedOut={this.userLogOut.bind(this)} />
-          <MyEvents
-            onSelectEvent={this.selectEventDetail.bind(this)}
-            events={this.state.userEvents}
+            userLoggedOut={this.userLogOut.bind(this)}
+            showUserEvents={this.displayUserEvents.bind(this)} />
+            <MyEvents
+            onSelectEvent={this.selectSavedEventDetail.bind(this)}
+            events={this.state.results}
             />
             <SelectedResults
-            onReturnToSearch={this.returnToSearch.bind(this)}
+            showUserEvents={this.displayUserEvents.bind(this)}
             event={this.state.singleResult}
             />
           </div>
           )
       //Landing Page if user is logged in
-      } else if(this.state.user){
+      } else if(this.state.user&&!this.state.searched){
         return(
         <div>
           <Header
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
-            userLoggedOut={this.userLogOut.bind(this)} />
+            userLoggedOut={this.userLogOut.bind(this)}
+            showUserEvents={this.displayUserEvents.bind(this)} />
           <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -217,7 +248,7 @@ export default class SearchContainer extends React.Component {
             keyword={this.state.keyword}
             />
             <Profile
-            onSelectEvent={this.selectEventDetail.bind(this)}
+            onSelectSavedEvent={this.selectSavedEventDetail.bind(this)}
             events={this.state.userEvents}
             />
           </div>
@@ -229,7 +260,8 @@ export default class SearchContainer extends React.Component {
           <Header
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
-            userLoggedOut={this.userLogOut.bind(this)} />
+            userLoggedOut={this.userLogOut.bind(this)}
+            showUserEvents={this.displayUserEvents.bind(this)} />
           <SearchInitial
             onCreateUser={this.createUser.bind(this)}
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}

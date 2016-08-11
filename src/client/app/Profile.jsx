@@ -10,7 +10,7 @@ export default class Profile extends React.Component {
             <div className="infoContainer" key={i}>
             <div className="imageContainer"
             value={event.event_id} >
-              <img onClick={this.props.onSelectEvent} className="eventImage" src={event.image} alt={event.event_id}/>
+              <img onClick={this.props.onSelectSavedEvent} className="eventImage" src={event.image} alt={event.event_id}/>
             </div>
               <h5>{event.title.slice(0,25)}</h5>
               <h6>{event.event_time}</h6>

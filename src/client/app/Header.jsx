@@ -24,12 +24,17 @@ export default class Header extends React.Component {
     )
   }
 
-clearLocalStorage(event){
-  localStorage.setItem('token','')
-  localStorage.setItem('user','')
-  console.log('brah!? you leavin?')
-  this.props.userLoggedOut()
-}
+  clearLocalStorage(event){
+    localStorage.setItem('token','')
+    localStorage.setItem('user','')
+    console.log('brah!? you leavin?')
+    this.props.userLoggedOut()
+  }
+
+  myEvents(event){
+    event.preventDefault()
+    this.props.showUserEvents()
+  }
 
   render(){
     if(!this.props.user){
@@ -70,18 +75,18 @@ clearLocalStorage(event){
     return (
       <div className="header">
         <h1>FlakeBot</h1>
-          <table>
+          <table className='signIn'>
             <tbody>
               <tr>
                 <td>
-                  <button className='signIn' onClick={this.clearLocalStorage.bind(this)}>Log Out</button>
-                </td>
-                {/*<td>
-                  <button className="signIn">My Events</button>
+                  <button>Talk to FlakeBot</button>
                 </td>
                 <td>
-                  <button className="signIn">Talk to FlakeBot</button>
-                </td>*/}
+                  <button onClick={this.myEvents.bind(this)}>My Events</button>
+                </td>
+                <td>
+                  <button onClick={this.clearLocalStorage.bind(this)}>Log Out</button>
+                </td>
               </tr>
             </tbody>
           </table>

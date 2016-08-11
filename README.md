@@ -42,3 +42,4 @@ http://www.thesitewizard.com/general/set-cron-job.shtml
 ## references
 
 http://stackoverflow.com/questions/17415579/how-to-iso-8601-format-a-date-with-timezone-offset-in-javascript
+https://github.com/auth0/jwt-decode - how to extract user_id from token

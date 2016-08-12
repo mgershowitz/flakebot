@@ -1,21 +1,28 @@
 const express        = require('express');
-const router         = express.Router();
+const flakeBot         = express.Router();
 const momentTimeZone = require('moment-timezone');
 const moment         = require('moment');
-const Flakebot        = require('../models/flakebot');
+const model       = require('../models/flakebot');
 
 
-const getTimeZones = function(){
-  return momentTimeZone.tz.names();
-}
+// const getTimeZones = function(){
+//   return momentTimeZone.tz.names();
+// }
 
-// GET: /appointments
-router.get('/', function(req, res, next) {
-  Appointment.find()
-    .then(function (appointments) {
-      res.render('appointments/index', { appointments: appointments });
-    });
-});
+// // GET: /appointments
+// router.get('/', function(req, res, next) {
+//   Appointment.find()
+//     .then(function (appointments) {
+//       res.render('appointments/index', { appointments: appointments });
+//     });
+// });
+
+flakeBot.get('/', model.youComing, (req,res)=>res.send('flakeBot'))
+
+
+module.exports = flakeBot;
+
+
 
 // GET: /appointments/create
 // router.get('/create', function(req, res, next) {

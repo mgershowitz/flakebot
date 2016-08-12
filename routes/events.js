@@ -7,6 +7,8 @@ const sendJSONresp = (req,res)=>res.json(res.rows)
 event.route('/')
   .get(db.getEvents, sendJSONresp)
 
+
+
 event.route('/event')
   .get(db.getEventDetail, sendJSONresp)
 

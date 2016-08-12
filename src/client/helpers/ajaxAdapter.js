@@ -70,8 +70,15 @@ const ajaxAdapter = {
       body: JSON.stringify(user)
     })
     .then( r => r.json())
+  },
+
+  flakeBot(){
+    return fetch('/flakeBot').then(r => console.log("called"))
   }
+
 }
+
+
 
 
 export default ajaxAdapter;

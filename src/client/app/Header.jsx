@@ -27,7 +27,7 @@ export default class Header extends React.Component {
 
   bro(event){
     event.preventDefault()
-    flakeBot.youComing();
+    ajax.flakeBot();
   }
 
   clearLocalStorage(event){

@@ -1,13 +1,7 @@
 const jwt     = require('jsonwebtoken');
 
 function getTokenFromHeader(req) {
-  // console.log(req.headers.authorization )
-  // console.log(req.headers.authorization.split(' ')[0])
-  // console.log(req.headers.authorization.split(' ')[1])
-  // console.log(req.query )
-  console.log(req.query.token)
-
-
+  console.log(req.headers.authorization)
   if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
     return req.headers.authorization.split(' ')[1];
   } else if (req.query && req.query.token) {
@@ -36,7 +30,6 @@ module.exports={
 
   validateToken(req,res,next){
     const token = getTokenFromHeader(req)
-    console.log(token+"why!?!?!?!")
     // no token, die here
     if (!token){
       res.status(403).end()

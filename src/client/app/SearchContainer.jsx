@@ -1,14 +1,15 @@
-import React            from 'react'
-import Header           from './Header.jsx'
-import SearchInitial    from './SearchInitial.jsx'
-import SearchDetail     from './SearchDetail.jsx'
-import Results          from './Results.jsx'
-import Profile          from './Profile.jsx'
-import MyEvents         from './MyEvents.jsx'
-import SideResults      from './SideResults.jsx'
-import SelectedResults  from './SelectedResults.jsx'
-import ajax             from '../helpers/ajaxAdapter.js'
-import util             from '../helpers/util.js'
+import React                from 'react'
+import Header               from './Header.jsx'
+import SearchInitial        from './SearchInitial.jsx'
+import SearchDetail         from './SearchDetail.jsx'
+import SavedSelectedResults from './SavedSelectedResults.jsx'
+import Results              from './Results.jsx'
+import Profile              from './Profile.jsx'
+import MyEvents             from './MyEvents.jsx'
+import SideResults          from './SideResults.jsx'
+import SelectedResults      from './SelectedResults.jsx'
+import ajax                 from '../helpers/ajaxAdapter.js'
+import util                 from '../helpers/util.js'
 
 
 export default class SearchContainer extends React.Component {
@@ -118,6 +119,40 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  saveEvent(event){
+    event.preventDefault()
+    let newEvent = {
+      title: event.target.title.value,
+      event_id: event.target.event_id.value,
+      image: event.target.image.value,
+      event_time: event.target.event_time.value
+    }
+    ajax.addUserEvent(newEvent).then(event => {
+      console.log("success!!")
+      ajax.getMyEvents(localStorage.user_id).then( myEvents => {
+        this.setState({
+          userEvents: myEvents,
+          user:true
+        })
+      })
+    })
+  }
+
+  deleteEvent(event){
+    event.preventDefault()
+    let userEvent = {event_id: event.target.event_id.value}
+    console.log(userEvent)
+    ajax.deleteUserEvent(userEvent).then(event => {
+      console.log("success!!")
+      ajax.getMyEvents(localStorage.user_id).then( myEvents => {
+        this.setState({
+          userEvents: myEvents,
+          user:true
+        })
+      })
+    })
+  }
+
   createUser(event){
     event.preventDefault();
     let thing = event.target
@@ -183,6 +218,7 @@ export default class SearchContainer extends React.Component {
             />
            <SelectedResults
             onReturnToSearch={this.returnToSearch.bind(this)}
+            onSaveEvent={this.saveEvent.bind(this)}
             event={this.state.singleResult}
             />
           </div>
@@ -224,7 +260,8 @@ export default class SearchContainer extends React.Component {
             onSelectEvent={this.selectSavedEventDetail.bind(this)}
             events={this.state.results}
             />
-            <SelectedResults
+            <SavedSelectedResults
+            onDeleteEvent={this.deleteEvent.bind(this)}
             showUserEvents={this.displayUserEvents.bind(this)}
             event={this.state.singleResult}
             />

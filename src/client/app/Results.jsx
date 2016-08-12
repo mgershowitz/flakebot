@@ -15,7 +15,7 @@ export default class Results extends React.Component {
               <img onClick={this.props.onSelectEvent} className="eventImage" src={event.image.large.url} alt={event.id}/>
             </div>
               <h5>{event.title.slice(0,25)}</h5>
-              <h6>{event.start_time}</h6>
+              <h6>{event.start_time.slice(0,24)}</h6>
             </div>
             )
           } else {
@@ -27,7 +27,7 @@ export default class Results extends React.Component {
               <img onClick={this.props.onSelectEvent} className="nullEventImage"  src='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg' alt={event.id}/>
             </div>
               <h5>{event.title.slice(0,25)}</h5>
-              <h6>{event.start_time}</h6>
+              <h6>{event.start_time.slice(0,24)}</h6>
             </div>
             )
           }

@@ -1,12 +1,12 @@
 import React     from 'react'
 
-export default class SelectedResults extends React.Component {
+export default class SavedSelectedResults extends React.Component {
   render(){
     if(!this.props.event.images){
     console.log('not array')
     return(
       <div className="selectedEvent">
-        <h1>Brah! This one looks Saweeet!</h1>
+        <h1>Brah! I've saved the date!!</h1>
           <div className="selectImageContainer" >
             <img className="eventImage" src='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg' alt=""/>
           </div>
@@ -15,12 +15,9 @@ export default class SelectedResults extends React.Component {
             <h6>{this.props.event.start_time}</h6>
             <p>{this.props.event.city}</p>
             <p>{this.props.event.description}</p>
-            <form action="" onSubmit={this.props.onSaveEvent}>
-              <input type="hidden" name="title" value={this.props.event.title}/>
+            <form action="" onSubmit={this.props.onDeleteEvent}>
               <input type="hidden" name="event_id" value={this.props.event.id}/>
-              <input type="hidden" name="image" value='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg'/>
-              <input type="hidden" name="event_time" value={this.props.event.start_time}/>
-              <button className="myButton">Let's Go!!!</button>
+              <button className="myButton">Can't Make It</button>
             </form>
             <button onClick={this.props.onReturnToSearch} className="myButton">Search Again</button>
       </div>
@@ -38,12 +35,9 @@ export default class SelectedResults extends React.Component {
             <h6>{this.props.event.start_time}</h6>
             <p>{this.props.event.city}</p>
             <p>{this.props.event.description}</p>
-            <form action="" onSubmit={this.props.onSaveEvent}>
-              <input type="hidden" name="title" value={this.props.event.title}/>
+            <form action="" onSubmit={this.props.onDeleteEvent}>
               <input type="hidden" name="event_id" value={this.props.event.id}/>
-              <input type="hidden" name="image" value={this.props.event.images.image.medium.url}/>
-              <input type="hidden" name="event_time" value={this.props.event.start_time}/>
-              <button className="myButton">Let's Go!!!</button>
+              <button className="myButton">Can't Make It</button>
             </form>
             <button onClick={this.props.onReturnToSearch} className="myButton">Search Again</button>
       </div>
@@ -61,12 +55,9 @@ export default class SelectedResults extends React.Component {
             <h6>{this.props.event.start_time}</h6>
             <p>{this.props.event.city}</p>
             <p>{this.props.event.description}</p>
-            <form action="" onSubmit={this.props.onSaveEvent}>
-              <input type="hidden" name="title" value={this.props.event.title}/>
+            <form action="" onSubmit={this.props.onDeleteEvent}>
               <input type="hidden" name="event_id" value={this.props.event.id}/>
-              <input type="hidden" name="image" value={this.props.event.images.image.medium.url}/>
-              <input type="hidden" name="event_time" value={this.props.event.start_time}/>
-              <button className="myButton">Let's Go!!!</button>
+              <button className="myButton">Can't Make It</button>
             </form>
             <button onClick={this.props.onReturnToSearch} className="myButton">Search Again</button>
       </div>

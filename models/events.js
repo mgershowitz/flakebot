@@ -37,7 +37,7 @@ module.exports = {
       },
       (err,result,body)=>{
         if (err) throw err;
-        console.log(result.body)
+        // console.log(result.body)
         res.rows = result.body
         next()
       })

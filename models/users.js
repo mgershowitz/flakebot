@@ -89,7 +89,7 @@ module.exports = {
          })
     },
 
-  addUserEvents(req,res,next) {
+  addUserEvent(req,res,next) {
       console.log('=====', req.body)
       let uID = parseInt(req.params.id)
       _db.one(
@@ -111,9 +111,12 @@ module.exports = {
 
   deleteUserEvent(req,res,next) {
     //const iID = Number.parseInt(req.params.item_id)
+    console.log('dnfisdfnksdhfvdfv'+req.body.event_id)
+    let uID = parseInt(req.params.id)
     _db.none(
       `DELETE FROM saved_events
-      WHERE title = $1;`, [req.body.title]
+      WHERE event_id = $1
+      AND user_reference= $2;`, [req.body.event_id, uID]
     )
     .then(() => {
       console.log('Deleted saved_events successfully');

@@ -1,8 +1,16 @@
-var cron = require('node-cron');
-// import Login            from './Login.jsx'
-// import CreateUser       from './CreateUser.jsx'
+var CronJob = require('cron').CronJob;
+var notificationsWorker = require('./workers/notificationsWorker');
+var moment = require('moment');
 
+var schedulerFactory =  function(){
+  return {
+    start: function(){
+      new CronJob('00 * * * * *', function() {
+        console.log('Running Send Notifications Worker for ' +  moment().format());
+        notificationsWorker.run();
+      }, null, true, '');
+    }
+  };
+};
 
-  cron.schedule('* * * * *', ()=>{
-    console.log("cron job!!")
-  });
+module.exports = schedulerFactory();

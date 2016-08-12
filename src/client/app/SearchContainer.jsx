@@ -132,7 +132,9 @@ export default class SearchContainer extends React.Component {
       ajax.getMyEvents(localStorage.user_id).then( myEvents => {
         this.setState({
           userEvents: myEvents,
-          user:true
+          user:true,
+          searched: false,
+          selected: false
         })
       })
     })
@@ -147,7 +149,8 @@ export default class SearchContainer extends React.Component {
       ajax.getMyEvents(localStorage.user_id).then( myEvents => {
         this.setState({
           userEvents: myEvents,
-          user:true
+          user: true,
+          savedSelected: false
         })
       })
     })

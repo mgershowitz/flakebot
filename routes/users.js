@@ -13,14 +13,14 @@ users.post('/',
     (req,res) => res.status(201).json({data: 'success'}).end()
 )
 
-//users.use( tokenService.validateToken )
-
-users.route('/:id')
-  .delete(db.deleteUserEvent, ( req,res ) => res.send( req.params.user_id ))
+users.use( tokenService.validateToken )
 
 users.get('/', db.listUsers, (req,res)=>
   res.json( res.users))
 
+
+users.route('/:id')
+  .delete(db.deleteUserEvent, ( req,res ) => res.send( req.params.user_id ))
 
 users.route('/:id')
   .get(db.getUserEvents, sendJSONresp)

@@ -1,6 +1,7 @@
 import React from 'react';
 import ajax  from '../helpers/ajaxAdapter.js'
 const jwtDecode = require('jwt-decode');
+// const flakeBot = require('../../../models/flakebot')
 
 export default class Header extends React.Component {
   handleSubmit(event){
@@ -22,6 +23,11 @@ export default class Header extends React.Component {
       }
     }
     )
+  }
+
+  bro(event){
+    event.preventDefault()
+    flakeBot.youComing();
   }
 
   clearLocalStorage(event){
@@ -79,7 +85,7 @@ export default class Header extends React.Component {
             <tbody>
               <tr>
                 <td>
-                  <button>Talk to FlakeBot</button>
+                  <button onClick={this.bro.bind(this)}>Talk to FlakeBot</button>
                 </td>
                 <td>
                   <button onClick={this.myEvents.bind(this)}>My Events</button>

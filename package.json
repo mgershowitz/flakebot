@@ -24,15 +24,20 @@
   "dependencies": {
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cron": "^1.1.0",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.1.6",
     "jwt-decode": "^2.1.0",
+    "moment": "^2.14.1",
+    "moment-timezone": "^0.5.5",
     "morgan": "^1.7.0",
     "node-cron": "^1.1.1",
     "path": "^0.12.7",
     "pg-promise": "^5.2.0",
-    "request": "^2.74.0"
+    "request": "^2.74.0",
+    "twilio": "^2.9.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",

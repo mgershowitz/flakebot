@@ -85,7 +85,7 @@ body {
   display: inline-block;
   vertical-align: top;
   width: 25%;
-  height: 100vh;
+  /*height: 100vh;*/
   top: 10%;
   background-color: #ddd;
 }

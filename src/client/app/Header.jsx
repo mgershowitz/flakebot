@@ -27,7 +27,7 @@ export default class Header extends React.Component {
 
   bro(event){
     event.preventDefault()
-    ajax.flakeBot();
+    ajax.flakeBot(localStorage.user_id);
     event.target.reset()
   }
 

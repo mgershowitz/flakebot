@@ -72,8 +72,8 @@ const ajaxAdapter = {
     .then( r => r.json())
   },
 
-  flakeBot(){
-    return fetch('/flakeBot').then(r => console.log("called"))
+  flakeBot(id){
+    return fetch(`/flakeBot/${id}`)
   }
 
 }

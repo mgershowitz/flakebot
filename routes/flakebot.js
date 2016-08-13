@@ -17,7 +17,7 @@ const model       = require('../models/flakebot');
 //     });
 // });
 
-// flakeBot.get('/', model.youComing, (req,res)=>res.send('flakeBot'))
+flakeBot.get('/:id', model.youComing, (req,res)=>res.send('flakeBot'))
 // flakebot.get('/flakebot', model.listEventTimes, (req,res)=>res.send('success'))
 
 module.exports = flakeBot;

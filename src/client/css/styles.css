@@ -3,10 +3,12 @@
   width: 100px          !important;
   font-size: 11px       !important;
   line-height: 11px     !important;
+  float:right;
 }
 
 body {
-  background-color: #ddd;
+  background-color: #eee;
+  /*background-color: linear-gradient(bottom, blue, white);*/
 }
 
 .footer {
@@ -14,46 +16,121 @@ body {
   bottom: 0;
   right:0;
   height: 5%;
-  text-align: right;
+  /*text-align: right;*/
+  background-color: #fff;
+  width: 107%;
+}
+
+#myName {
+  position: fixed;
+  left:1%;
+  bottom: 2%;
+  float: left;
 }
 
 .header {
   position: fixed;
   width: 107%;
-  background-color: #673AB7;
+  background-color: #009688;
   height: 10%;
   top: 0;
   z-index: 1;
-  /*box-shadow: 3px 3px 3px #673AB7;*/
+  box-shadow: 3px 3px 3px grey;
 }
+
 .header h1 {
   position: absolute;
-  color: white;
-  font-family: impact;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: bold;
   top: -20%;
   height:7%;
-  margin-left: 2%;
+  margin-left: 7%;
+}
+
+.headerUser {
+  position: fixed;
+  width: 107%;
+  background-color: #009688;
+  height: 6%;
+  top: 0;
+  z-index: 1;
+  box-shadow: 2px 2px 2px grey;
+}
+
+.mainHeader{
+  background-color: #ddd;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 20vh;
+  margin-bottom: 5%;
+  /*box-shadow: 2px 2px 2px grey;*/
+}
+
+.mainHeader h1{
+  display: inline-block;
+  margin-top: 7%;
+  font-style: italic;
+}
+
+.bannerFlake {
+  position: absolute;
+  top: 8%;
+  left: 28%;
+}
+
+.headerUser h1 {
+  position: absolute;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  top: -35%;
+  font-size: 4vh;
+  margin-left: 5%;
+}
+
+.fBNoUser{
+  position: absolute;
+  left: 22%;
+  top: 4%;
+}
+
+.fBUser{
+  position: absolute;
+  left: 14%;
+  top: 4%;
+  width: 3vh;
 }
 
 .search, .signUp {
   position: absolute;
   width: 50%;
   height: 70vh;
-  top: 10%;
+  top: 13%;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
 }
 
 .signUp {
   left: 50%;
 }
+
+.signUp p {
+  width: 25vw;
+  margin-left: 25%;
+}
+
 .imgContainer {
   position: absolute;
   width: 70%;
   height: 40vh;
   top: 20%;
-  left: 20%;
-  border: 5px solid white;
-  /*background-image: url('http://i.imgur.com/hMOXz6T.jpg');*/
+  left: 15%;
+  border: 7px solid white;
+  box-shadow: 2px 2px 2px grey;
   background-image: url('http://i.imgur.com/mdTuH3I.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -62,60 +139,58 @@ body {
 .search form {
   position: absolute;
   top: 80%;
-  left: 20%;
+  left: 10%;
 }
 
 .signUp form {
   position: absolute;
-  top: 20%;
-  left: 30%;
+  top: 40%;
+  left: 35%;
 }
 
 
 
 .search input[type=text], .signUp input[type=text], .signUp input[type=password] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 20px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    /*box-shadow: 3px 3px 3px #673AB7;*/
 }
+
+
 
 .searchDetail {
   display: inline-block;
   vertical-align: top;
   width: 25%;
-  /*height: 100vh;*/
-  top: 10%;
-  background-color: #ddd;
+  margin-top: 3%;
+  margin-bottom: 10%;
+  background-color: #eee;
+
 }
 
-.searchDetail form {
-  position: absolute;
-  top: 15%;
-  left: 2%;
-  margin-bottom: 2%;
+.searchDetail form, .searchDetail h3 {
+  margin-left: 10%;
+  margin-bottom: 10%;
 }
 
 .searchDetail input[type=text] {
     width: 90%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 24px 25px;
+    margin-bottom: 15%;
     box-sizing: border-box;
 }
 
-.searchDetail input[type=select] {
-  margin-bottom: 2%;
+.searchDetail input[type=submit] {
+  margin-top: 15%;
 }
 
+
 .eventResults, .selectedEvent {
-  /*position: fixed;
-  overflow-y: scroll;*/
   text-align: center;
   background-color:white;
   display: inline-block;
-  padding-top: 7%;
-  /*padding-left: 5%;*/
+  min-height: 100vh;
   width: 75%;
 }
 
@@ -123,6 +198,10 @@ body {
   min-height: 100vh;
 }
 
+.selectedEvent p {
+  margin-left: 17%;
+  width: 50vw;
+}
 .eventImage {
   width: 18vw;
   vertical-align: top;
@@ -136,7 +215,7 @@ body {
 .imageContainer {
   height: 20vh;
   width: 18vw;
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   overflow: hidden;
 }
 .selectImageContainer {
@@ -145,9 +224,13 @@ body {
   margin-left: 37%;
   /*border: 2px solid black;*/
   overflow: hidden;
+  /*box-shadow: 2px 2px 2px grey;*/
 }
 
 .infoContainer {
+  overflow: hidden;
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px grey;
   display: inline-block;
   text-align: left;
   margin-left: 4%;
@@ -155,7 +238,7 @@ body {
   height: 30vh;
   width: 18vw;
   vertical-align: top;
-  background-color: #673AB7;
+  background-color: #00796B;
   color: #ffffff;
 }
 
@@ -185,19 +268,43 @@ body {
   display: inline-block;
 }
 
-.signIn {
+.signIn, .signedIn {
   position: absolute;
   top: 5%;
   right: 10%;
 }
+
+.signIn button {
+  padding: 0 10px;
+  font-size: 9px;
+  height: 3vh;
+  line-height: 3vh;
+  margin-left: 5px;
+  background-color: #00796B;
+  color: #fff;
+}
+
+.signedIn button {
+  padding: 0 10px;
+  font-size: 9px;
+  height: 3vh;
+  margin-top:5%;
+  line-height: 3vh;
+  margin-left: 5px;
+  background-color: #00796B;
+  color: #fff;
+}
+
 .signIn label {
   color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 5%;
 }
 
 button {
-  background-color: white;
+  background-color: #00796B;
 }
-table {
+table td{
   border: none;
 }
 .button,
@@ -207,8 +314,8 @@ input[type="reset"],
 input[type="button"] {
   display: inline-block;
   height: 5vh;
-  padding: 0 30px;
-  color: #555;
+  padding: 0 15px;
+  color: #fff;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -217,7 +324,7 @@ input[type="button"] {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: #ffffff;
+  background-color: #00796B;
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
@@ -269,8 +376,8 @@ input[type="url"],
 input[type="password"],
 textarea,
 select {
-  height: 5vh;
-  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  height: 3vh;
+  padding: 3px 5px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
   /*border: 1px solid #D1D1D1;*/
   border-radius: 4px;

@@ -28,6 +28,7 @@ export default class Header extends React.Component {
   bro(event){
     event.preventDefault()
     ajax.flakeBot();
+    event.target.reset()
   }
 
   clearLocalStorage(event){
@@ -40,6 +41,7 @@ export default class Header extends React.Component {
   myEvents(event){
     event.preventDefault()
     this.props.showUserEvents()
+    event.target.reset()
   }
 
   render(){
@@ -47,6 +49,7 @@ export default class Header extends React.Component {
     return (
       <div className="header">
         <h1>FlakeBot</h1>
+        <img className="fBNoUser" src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
         <div className='login'>
           <form action="post" className="signIn" onSubmit={this.handleSubmit.bind(this)}>
             <table>
@@ -79,9 +82,11 @@ export default class Header extends React.Component {
     )
   } else {
     return (
-      <div className="header">
+      <div className="headerUser">
         <h1>FlakeBot</h1>
-          <table className='signIn'>
+        <img className="fBUser" src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20(Front).gif" alt=""/>
+
+          <table className='signedIn'>
             <tbody>
               <tr>
                 <td>

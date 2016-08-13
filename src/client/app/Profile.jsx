@@ -4,7 +4,11 @@ export default class Profile extends React.Component {
   render(){
     return(
     <div className="eventResults">
-      <h1>Can't wait Brah!!</h1>
+      <div className="mainHeader">
+        <img className='bannerFlake' src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(Front).gif" alt=""/>
+        <h1>Can't wait, Brah!!</h1>
+        <p>We're going to have a great time!</p>
+      </div>
         {this.props.events.map((event,i) => {
             return(
             <div className="infoContainer" key={i}>

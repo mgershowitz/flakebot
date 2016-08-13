@@ -5,6 +5,7 @@ export default class MyEvents extends React.Component {
 
     return (
       <div className="searchDetail">
+        <h3>My Events</h3>
         {this.props.events.map((event,i) => {
             return(
             <div className="sideContainer" key={i}>

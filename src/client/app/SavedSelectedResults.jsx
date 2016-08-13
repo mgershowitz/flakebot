@@ -6,7 +6,11 @@ export default class SavedSelectedResults extends React.Component {
     console.log('not array')
     return(
       <div className="selectedEvent">
-        <h1>Brah! I've saved the date!!</h1>
+        <div className="mainHeader">
+          <img className='bannerFlake' src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(Front).gif" alt=""/>
+          <h1>Brah! I've saved the date!!</h1>
+          <p>I'm definitely going to make it this time</p>
+        </div>
           <div className="selectImageContainer" >
             <img className="eventImage" src='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg' alt=""/>
           </div>
@@ -26,7 +30,11 @@ export default class SavedSelectedResults extends React.Component {
     console.log('not array')
     return(
       <div className="selectedEvent">
-        <h1>Brah! This one looks Saweeet!</h1>
+        <div className="mainHeader">
+          <img className='bannerFlake' src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(Front).gif" alt=""/>
+          <h1>Brah! I've saved the date!!</h1>
+          <p>I'm definitely going to make it this time</p>
+        </div>
           <div className="selectImageContainer" >
             <img className="eventImage" src={this.props.event.images.image.medium.url} alt=""/>
           </div>
@@ -46,7 +54,11 @@ export default class SavedSelectedResults extends React.Component {
     console.log('is Array')
     return(
       <div className="selectedEvent">
-        <h1>Brah! This one looks Saweeet!</h1>
+        <div className="mainHeader">
+          <img className='bannerFlake' src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(Front).gif" alt=""/>
+          <h1>Brah! I've saved the date!!</h1>
+          <p>I'm definitely going to make it this time</p>
+        </div>
           <div className="selectImageContainer" >
             <img className="eventImage" src={this.props.event.images.image[0].url} alt=""/>
           </div>

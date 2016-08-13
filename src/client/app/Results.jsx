@@ -4,7 +4,11 @@ export default class Results extends React.Component {
   render(){
     return(
     <div className="eventResults">
-      <h1>Brah! Look at all the cool stuff we can do!</h1>
+      <div className="mainHeader">
+        <img className='bannerFlake' src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(Front).gif" alt=""/>
+        <h1>Brah! Look at all the cool stuff we can do!</h1>
+        <p>Here's what's going on</p>
+      </div>
         {this.props.events.map((event,i) => {
             if(event.image){
             // console.log('true')

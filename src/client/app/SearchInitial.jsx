@@ -6,7 +6,8 @@ export default class SearchInitial extends React.Component {
     return (
       <div>
         <div className="search">
-          <h2>The World = Your Oyster</h2>
+          <h2>Search by City or Keyword!</h2>
+          <p>Find fun events to do around your city</p>
           <div className="imgContainer"></div>
           <form action="" onSubmit={this.props.onSubmitSearch} >
             <input type="text" placeholder="Search by Location" onChange={this.props.onUpdateLocationSearch}/>
@@ -15,7 +16,8 @@ export default class SearchInitial extends React.Component {
           </form>
         </div>
         <div className="signUp">
-          <h2>Want to be best friends?</h2>
+          <h2>Be friends with FlakeBot!</h2>
+          <p>FlakeBot is one of the coolest bots on the planet. He always knows the most fun things to do in every city around the world. And don't worry, he ALWAYS shows up. It's going to be a blast</p>
           <form action="" onSubmit={this.props.onCreateUser} >
             <input type="text" name="username" placeholder="New Username"/><br/>
             <input type="text" name="email" placeholder="New Email"/><br/>

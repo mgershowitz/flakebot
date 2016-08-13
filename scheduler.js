@@ -8,6 +8,7 @@ module.exports = {
     cron.schedule('* * * * *', () => {
       console.log('Running Send Notifications Worker for ' +  moment().format());
       // flakebot.sendNotifications()
+      // flakebot.listEventTimes()
       // notificationsWorker.run()
     })
   }

@@ -7,7 +7,7 @@ CREATE TABLE users (
   user_id serial unique primary key,
   username VARCHAR(50) unique,
   email VARCHAR(255) unique not null,
-  phone_number BIGINT not null,
+  phone_number TEXT not null,
   password_digest TEXT not null,
   user_created timestamp not null default now()
 );

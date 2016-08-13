@@ -5,6 +5,7 @@ export default class SideResults extends React.Component {
 
     return (
       <div className="searchDetail">
+        <h3>Searched Events</h3>
         {this.props.events.map((event,i) => {
             if(event.image){
             // console.log('true')

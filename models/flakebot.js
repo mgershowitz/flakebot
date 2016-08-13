@@ -1,17 +1,9 @@
 const _db               = require( './connection' );
 const moment            = require('moment');
+const twilio            = require('twilio');
 const twilioSID         = process.env.TWILIO_ACCOUNT_SID;
 const twilioAuth        = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
-const twilio            = require('twilio');
-
-// var AppointmentSchema = new mongoose.Schema({
-//   name:String,
-//   phoneNumber: String,
-//   notification : Number,
-//   timeZone : String,
-//   time : {type : Date, index : true}
-// });
 
 module.exports = {
   sendNotifications(){
@@ -60,7 +52,19 @@ module.exports = {
 
                 }
             });
-        }
+        },
+
+   listEventTimes( req,res,next ) {
+    _db.any( `SELECT * FROM saved_events;` )
+       .then( users => {
+        console.log(users)
+        next()
+       } )
+       .catch( error => {
+        console.error( 'Error', error )
+       })
+
+  }
 }
         // Don't wait on success/failure, just indicate all messages have been
         // queued for delivery

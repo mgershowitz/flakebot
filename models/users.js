@@ -36,7 +36,7 @@ module.exports = {
         }else{
           res.error = true
         }
-        console.log( 'the user '+ res.user.username )
+        // console.log( 'the user '+ res.user.username )
         next()
 
       })
@@ -57,7 +57,7 @@ module.exports = {
           returning *;`, [req.body.username, req.body.email, req.body.phone, hash]
         )
         .then( newUser=> {
-          console.log( newUser )
+          // console.log( newUser )
           res.user = newUser;
           next()
         })
@@ -71,7 +71,7 @@ module.exports = {
 },
 
   getUserEvents( req,res,next ) {
-      console.log(req.params)
+      // console.log(req.params)
       let uID = parseInt(req.params.id)
       _db.any( `SELECT title, image, event_time, event_id
         FROM users
@@ -90,7 +90,7 @@ module.exports = {
     },
 
   addUserEvent(req,res,next) {
-      console.log('=====', req.body)
+      // console.log('=====', req.body)
       let uID = parseInt(req.params.id)
       _db.one(
         `INSERT INTO
@@ -111,7 +111,7 @@ module.exports = {
 
   deleteUserEvent(req,res,next) {
     //const iID = Number.parseInt(req.params.item_id)
-    console.log('dnfisdfnksdhfvdfv'+req.body.event_id)
+    console.log(req.body.event_id)
     let uID = parseInt(req.params.id)
     _db.none(
       `DELETE FROM saved_events

@@ -63,7 +63,7 @@ export default class SearchContainer extends React.Component {
   handleSubmitSearch(event){
   event.preventDefault();
   ajax.eventsCall(this.state.location,this.state.time).then(res => {
-        console.log(res.event)
+        // console.log(res.event)
         this.setState({
         results: res.event,
         searched: true,
@@ -75,7 +75,7 @@ export default class SearchContainer extends React.Component {
 
  selectEventDetail(event){
     event.preventDefault();
-    console.log(event.target.alt)
+    // console.log(event.target.alt)
     ajax.eventDetailCall(event.target.alt).then( event =>{
       console.log(event)
       this.setState({
@@ -89,7 +89,7 @@ export default class SearchContainer extends React.Component {
  selectSavedEventDetail(event){
   event.preventDefault();
   ajax.eventDetailCall(event.target.alt).then( event =>{
-    console.log(event)
+    // console.log(event)
     this.setState({
       singleResult: event,
       selected: false,
@@ -169,7 +169,7 @@ export default class SearchContainer extends React.Component {
     ajax.createNewUser(newUser).then(
       setTimeout(()=>{
       ajax.loginUser(user).then( user => {
-          console.log(user)
+          // console.log(user)
           localStorage.setItem('token', user.token)
           localStorage.setItem('username', user.username)
           if(user.success){
@@ -183,7 +183,7 @@ export default class SearchContainer extends React.Component {
 
   userLogIn(){
     ajax.getMyEvents(localStorage.user_id).then( myEvents => {
-      console.log(myEvents)
+      // console.log(myEvents)
       this.setState({
         userEvents: myEvents,
         user:true,

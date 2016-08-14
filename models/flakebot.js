@@ -11,7 +11,7 @@ module.exports = {
     let client = new twilio.RestClient(twilioSID, twilioAuth);
     _db.any( `SELECT username, phone_number, title, event_time FROM users JOIN saved_events ON users.user_id = saved_events.user_reference;` )
        .then( users => {
-        console.log(users)
+        // console.log(users)
         users.forEach((user)=> {
           // Create options to send the message
           let now = moment().format('YYYY-MM-DD HH:mm:ss')

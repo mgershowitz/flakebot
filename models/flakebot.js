@@ -1,3 +1,4 @@
+'use strict'
 const _db               = require( './connection' );
 const moment            = require('moment');
 const twilio            = require('twilio');

@@ -71,7 +71,7 @@ module.exports = {
 },
 
   getUserEvents( req,res,next ) {
-      console.log(req.params)
+      // console.log(req.params)
       let uID = parseInt(req.params.id)
       _db.any( `SELECT title, image, event_time, event_id
         FROM users

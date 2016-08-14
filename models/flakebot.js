@@ -50,7 +50,7 @@ module.exports = {
       })
   },
   youComing(req,res,next){
-    console.log(req.params)
+    // console.log(req.params)
     let uID = parseInt(req.params.id)
     _db.any( `SELECT username, phone_number, title, event_time
       FROM users

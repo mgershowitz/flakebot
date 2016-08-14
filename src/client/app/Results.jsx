@@ -28,7 +28,7 @@ export default class Results extends React.Component {
             <div className="infoContainer" key={i}>
             <div className="imageContainer"
              value={event.id}>
-              <img onClick={this.props.onSelectEvent} className="nullEventImage"  src='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg' alt={event.id}/>
+              <img onClick={this.props.onSelectEvent} className="nullEventImage"  src='http://i.imgur.com/TAxW4dQ.png' alt={event.id}/>
             </div>
               <h5>{event.title.slice(0,25)}</h5>
               <h6>{event.start_time.slice(0,24)}</h6>

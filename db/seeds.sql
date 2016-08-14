@@ -7,7 +7,7 @@
 
 insert into saved_events (user_reference, event_id, title, image, event_time) VALUES
 
-  (1, 'test', 'Test event', 'iamge', '2016-08-13 17:19:00');
+  (1, 'test', 'Caturday, in the Park', 'https://dncache-mauganscorp.netdna-ssl.com/thumbseg/1427/1427690-bigthumbnail.jpg', '2016-08-14 12:37:00');
 
 
 

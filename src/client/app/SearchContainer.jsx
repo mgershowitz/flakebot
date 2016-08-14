@@ -31,7 +31,6 @@ export default class SearchContainer extends React.Component {
     }
   }
 
-
    componentDidMount(){
     if(localStorage.token){
       ajax.getMyEvents(localStorage.user_id).then( myEvents => {
@@ -42,8 +41,6 @@ export default class SearchContainer extends React.Component {
       })
     }
   }
-
-
 
   handleUpdateLocationSearch(event){
     this.setState({
@@ -266,6 +263,7 @@ export default class SearchContainer extends React.Component {
             <SavedSelectedResults
             onDeleteEvent={this.deleteEvent.bind(this)}
             showUserEvents={this.displayUserEvents.bind(this)}
+            // onReturnToSearch={this.returnToSearch.bind(this)}
             event={this.state.singleResult}
             />
           </div>

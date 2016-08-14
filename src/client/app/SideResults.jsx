@@ -19,7 +19,7 @@ export default class SideResults extends React.Component {
             // console.log('false')
             return(
             <div className="sideContainer" key={i}>
-              <img onClick={this.props.onSelectEvent} alt={event.id} className="nullSideEventImage"  src='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg' />
+              <img onClick={this.props.onSelectEvent} alt={event.id} className="nullSideEventImage"  src='http://i.imgur.com/qRUdEHb.png' />
               <p>{event.title.slice(0,20)}</p>
             </div>
             )

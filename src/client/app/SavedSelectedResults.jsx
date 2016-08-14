@@ -12,7 +12,7 @@ export default class SavedSelectedResults extends React.Component {
           <p>I'm definitely going to make it this time</p>
         </div>
           <div className="selectImageContainer" >
-            <img className="eventImage" src='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg' alt=""/>
+            <img className="nullEventImage" src='http://i.imgur.com/TAxW4dQ.png' alt=""/>
           </div>
             <h3>{this.props.event.title}</h3>
             <h4>{this.props.event.venue_name}</h4>
@@ -23,7 +23,7 @@ export default class SavedSelectedResults extends React.Component {
               <input type="hidden" name="event_id" value={this.props.event.id}/>
               <button className="myButton">Can't Make It</button>
             </form>
-            <button onClick={this.props.onReturnToSearch} className="myButton">Search Again</button>
+            <button onClick={this.props.showUserEvents} className="myButton">Back to Events</button>
       </div>
     )
     } else if(!Array.isArray(this.props.event.images.image)){
@@ -47,7 +47,7 @@ export default class SavedSelectedResults extends React.Component {
               <input type="hidden" name="event_id" value={this.props.event.id}/>
               <button className="myButton">Can't Make It</button>
             </form>
-            <button onClick={this.props.onReturnToSearch} className="myButton">Search Again</button>
+            <button onClick={this.props.showUserEvents} className="myButton">Back to Events</button>
       </div>
     )
   } else {
@@ -71,7 +71,7 @@ export default class SavedSelectedResults extends React.Component {
               <input type="hidden" name="event_id" value={this.props.event.id}/>
               <button className="myButton">Can't Make It</button>
             </form>
-            <button onClick={this.props.onReturnToSearch} className="myButton">Search Again</button>
+            <button onClick={this.props.showUserEvents} className="myButton">Back to Events</button>
       </div>
       )
     }

@@ -28,6 +28,17 @@ module.exports = {
                         user.phone_number.length - 5);
                     masked += '*****';
                     console.log(`Message sent to ${masked}`);
+                    _db.none(
+                      `DELETE FROM saved_events
+                      WHERE event_time = $1`, [user.event_time]
+                    )
+                    .then(() => {
+                      console.log('Deleted saved_events successfully');
+                      next()
+                    })
+                    .catch(error =>{
+                      console.error('Error in DELETE saved_events', error)
+                    })
                 }
             })
           }
@@ -46,28 +57,35 @@ module.exports = {
       ON saved_events.user_reference = users.user_id
       WHERE users.user_id = $1;`, [uID])
        .then( user => {
-        console.log(user[0])
-       //  let client = new twilio.RestClient(twilioSID, twilioAuth);
-       //  res.events = userEvents;
-       //  let options = {
-       //      to: "+" + '15165215169',
-       //      from: twilioPhoneNumber,
-       //      body: "Bro, I'm totes there"
-       //  };
-       //        // Send the message!
-       //        client.sendMessage(options, (err, response) => {
-       //            if (err) {
-       //                // Just log it for now
-       //                console.error(err);
-       //            } else {
-       //                // Log the last few digits of a phone number
-       //                // var masked = appointment.phoneNumber.substr(0,
-       //                //     appointment.phoneNumber.length - 5);
-       //                // masked += '*****';
+        let upcomingTitle = user[0].title
+        let upcomingTime = user[0].event_time
+        for(let i = 1 ; i < user.length ; i++){
+          if(Date.parse(user[i].event_time) < Date.parse(upcomingTime)){
+            upcomingTime = user[i].event_time
+            upcomingTitle = user[i].title
+          }
+        }
+        console.log(user[0].phone_number)
+        let client =  new twilio.RestClient(twilioSID, twilioAuth);
+        let options = {
+            to: "+" + user[0].phone_number,
+            from: twilioPhoneNumber,
+            body: `Bro, ${upcomingTitle} on ${moment(upcomingTime).format('LLLL')}? I am totes going to be there!!`
+        };
+              // Send the message!
+              client.sendMessage(options, (err, response) => {
+                  if (err) {
+                      // Just log it for now
+                      console.error(err);
+                  } else {
+                      // Log the last few digits of a phone number
+                      let masked = user[0].phone_number.substr(0,
+                          user[0].phone_number.length - 5);
+                      masked += '*****';
 
-       //            }
-       //        })
-       //  next()
+                  }
+              })
+        next()
        } )
        .catch( error => {
         console.error( 'Error', error )

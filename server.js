@@ -32,7 +32,7 @@ app.use( '/api/users', userRoute );
 app.use( '/events', eventsRoute )
 app.use( '/flakebot', flakebotRoute);
 
-// scheduler.start()
+scheduler.start()
 
 app.listen( port, () => {
   console.log( 'Server maxin\' and relaxin\' at ', port )

@@ -12,7 +12,7 @@ export default class SelectedResults extends React.Component {
           <p>We should totes go!</p>
         </div>
           <div className="selectImageContainer" >
-            <img className="eventImage" src='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg' alt=""/>
+            <img className="nullEventImage" src='http://i.imgur.com/TAxW4dQ.png' alt=""/>
           </div>
             <h3>{this.props.event.title}</h3>
             <h4>{this.props.event.venue_name}</h4>
@@ -22,7 +22,7 @@ export default class SelectedResults extends React.Component {
             <form action="" onSubmit={this.props.onSaveEvent}>
               <input type="hidden" name="title" value={this.props.event.title}/>
               <input type="hidden" name="event_id" value={this.props.event.id}/>
-              <input type="hidden" name="image" value='http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg'/>
+              <input type="hidden" name="image" value='http://i.imgur.com/qRUdEHb.png'/>
               <input type="hidden" name="event_time" value={this.props.event.start_time}/>
               <button className="myButton">Let's Go!!!</button>
             </form>

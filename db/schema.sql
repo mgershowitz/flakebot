@@ -21,7 +21,7 @@ user_reference INTEGER REFERENCES users(user_id),
 event_id TEXT NOT NULL,
 title TEXT NOT NULL,
 image TEXT NOT NULL,
-event_time TIMESTAMP NOT NULL
+event_time TEXT NOT NULL
 );
 
 

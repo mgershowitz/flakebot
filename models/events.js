@@ -18,7 +18,7 @@ module.exports = {
       json:true
     },
     (err,result,body)=>{
-      if (err) throw err;
+      // if (err) throw err;
       res.rows = result.body.events
       // console.log(result)
       next()
@@ -36,8 +36,8 @@ module.exports = {
         json:true
       },
       (err,result,body)=>{
-        if (err) throw err;
-        // console.log(result.body)
+        // if (err) throw err;
+        console.log(result.body)
         res.rows = result.body
         next()
       })

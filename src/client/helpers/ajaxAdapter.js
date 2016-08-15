@@ -4,9 +4,9 @@ const ajaxAdapter = {
     if(!fetch) throw "We need the Fetch brah";
   },
 
-  eventsCall(location,time) {
+  eventsCall(location,time,keywords) {
     console.log(location)
-    return fetch(`/events?location=${location}&time=${time}`)
+    return fetch(`/events?q=${keywords}&location=${location}&time=${time}`)
     .then(res => res.json() )
   },
 

@@ -10,6 +10,7 @@ import SideResults          from './SideResults.jsx'
 import SelectedResults      from './SelectedResults.jsx'
 import ajax                 from '../helpers/ajaxAdapter.js'
 import util                 from '../helpers/util.js'
+const jwtDecode = require('jwt-decode');
 
 
 export default class SearchContainer extends React.Component {
@@ -166,18 +167,20 @@ export default class SearchContainer extends React.Component {
       username: newUser.username,
       password: newUser.password
     }
+    console.log(user)
     ajax.createNewUser(newUser).then(
       setTimeout(()=>{
-      ajax.loginUser(user).then( user => {
-          // console.log(user)
-          localStorage.setItem('token', user.token)
-          localStorage.setItem('username', user.username)
-          if(user.success){
-            this.userLogIn()
-          } else {
-            thing.reset()
-          }
-        })}, 500)
+        ajax.loginUser(user).then( user => {
+        console.log(user)
+        localStorage.setItem('token', user.token)
+        localStorage.setItem('user_id', jwtDecode(user.token).user_id)
+        console.log(jwtDecode(user.token).user_id)
+        if(user.success){
+          this.userLogIn()
+        } else {
+          thing.reset()
+        }
+      })}, 500)
       )
     }
 

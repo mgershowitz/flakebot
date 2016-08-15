@@ -12,6 +12,7 @@ module.exports = {
         app_key: apikey,
         t: req.query.time,
         page_size: 30,
+        q: req.query.keywords,
         image_sizes: "large",
         location: req.query.location
       },

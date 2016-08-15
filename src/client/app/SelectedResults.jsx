@@ -1,5 +1,5 @@
 import React     from 'react'
-
+const moment     = require('moment')
 export default class SelectedResults extends React.Component {
   render(){
     if(!this.props.event.images){
@@ -16,7 +16,7 @@ export default class SelectedResults extends React.Component {
           </div>
             <h3>{this.props.event.title}</h3>
             <h4>{this.props.event.venue_name}</h4>
-            <h6>{this.props.event.start_time}</h6>
+            <h6>{moment(this.props.event.start_time).format('LLLL')}</h6>
             <p>{this.props.event.city}</p>
             <p>{this.props.event.description}</p>
             <form action="" onSubmit={this.props.onSaveEvent}>
@@ -43,7 +43,7 @@ export default class SelectedResults extends React.Component {
           </div>
             <h3>{this.props.event.title}</h3>
             <h4>{this.props.event.venue_name}</h4>
-            <h6>{this.props.event.start_time}</h6>
+            <h6>{moment(this.props.event.start_time).format('LLLL')}</h6>
             <p>{this.props.event.city}</p>
             <p>{this.props.event.description}</p>
             <form action="" onSubmit={this.props.onSaveEvent}>
@@ -70,7 +70,7 @@ export default class SelectedResults extends React.Component {
           </div>
             <h3>{this.props.event.title}</h3>
             <h4>{this.props.event.venue_name}</h4>
-            <h6>{this.props.event.start_time}</h6>
+            <h6>{moment(this.props.event.start_time).format('LLLL')}</h6>
             <p>{this.props.event.city}</p>
             <p>{this.props.event.description}</p>
             <form action="" onSubmit={this.props.onSaveEvent}>

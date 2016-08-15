@@ -19,7 +19,7 @@ export default class SideResults extends React.Component {
             // console.log('false')
             return(
             <div className="sideContainer" key={i}>
-              <img onClick={this.props.onSelectEvent} alt={event.id} className="nullSideEventImage"  src='http://i.imgur.com/qRUdEHb.png' />
+              <img onClick={this.props.onSelectEvent} alt={event.id} className="sideEventImage"  src='http://i.imgur.com/qRUdEHb.png' />
               <p>{event.title.slice(0,20)}</p>
             </div>
             )

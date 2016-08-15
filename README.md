@@ -41,8 +41,8 @@ http://www.thesitewizard.com/general/set-cron-job.shtml
 
 ## references
 
-http://stackoverflow.com/questions/17415579/how-to-iso-8601-format-a-date-with-timezone-offset-in-javascript. 
-https://github.com/auth0/jwt-decode - how to extract user_id from token. 
-https://www.npmjs.com/package/cron how to schedule cron jobs. 
-https://www.npmjs.com/package/moment how to parse dates. 
+http://stackoverflow.com/questions/17415579/how-to-iso-8601-format-a-date-with-timezone-offset-in-javascript.  
+https://github.com/auth0/jwt-decode - how to extract user_id from token.  
+https://www.npmjs.com/package/cron how to schedule cron jobs.  
+https://www.npmjs.com/package/moment how to parse dates.  
 https://www.twilio.com/docs/tutorials/walkthrough/appointment-reminders/node/express how to send schedule reminders through sms.

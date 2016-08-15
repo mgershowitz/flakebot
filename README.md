@@ -2,6 +2,9 @@
 
 ![](https://i.imgflip.com/63l1k.gif)
 
+## Link  
+https://frozen-earth-81466.herokuapp.com/
+
 ## Description
 
 Flakebot allows you to search for upcoming events s by keyword, location, time period, category, performer, or venue. Once you pick an event that you like, you can schedule the event into your upcoming calendar. Once you've save the event, Flakebot will confirm via sms messaging and agree to join you for the event. At an hour before the event, Flakebot will send you a reminder accompanied with it's regrets that it will not be able to attend the evnt with you. Through SMS messaging, you can receive information about your most upcoming event and also get Flakebot's RSVP to the event. It's toootallly going to make it this time! 
@@ -41,5 +44,8 @@ http://www.thesitewizard.com/general/set-cron-job.shtml
 
 ## references
 
-http://stackoverflow.com/questions/17415579/how-to-iso-8601-format-a-date-with-timezone-offset-in-javascript
-https://github.com/auth0/jwt-decode - how to extract user_id from token
+http://stackoverflow.com/questions/17415579/how-to-iso-8601-format-a-date-with-timezone-offset-in-javascript.  
+https://github.com/auth0/jwt-decode - how to extract user_id from token.  
+https://www.npmjs.com/package/cron how to schedule cron jobs.  
+https://www.npmjs.com/package/moment how to parse dates.  
+https://www.twilio.com/docs/tutorials/walkthrough/appointment-reminders/node/express how to send schedule reminders through sms.

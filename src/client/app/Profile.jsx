@@ -1,5 +1,5 @@
 import React     from 'react'
-
+const moment     = require('moment')
 export default class Profile extends React.Component {
   render(){
     return(
@@ -17,7 +17,7 @@ export default class Profile extends React.Component {
               <img onClick={this.props.onSelectSavedEvent} className="eventImage" src={event.image} alt={event.event_id}/>
             </div>
               <h5>{event.title.slice(0,25)}</h5>
-              <h6>{event.event_time}</h6>
+              <h6>{moment(event.event_time).format('LLLL')}</h6>
             </div>
             )
           })

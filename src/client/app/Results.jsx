@@ -1,5 +1,5 @@
 import React     from 'react'
-
+const moment     = require('moment')
 export default class Results extends React.Component {
   render(){
     return(
@@ -19,7 +19,7 @@ export default class Results extends React.Component {
               <img onClick={this.props.onSelectEvent} className="eventImage" src={event.image.large.url} alt={event.id}/>
             </div>
               <h5>{event.title.slice(0,25)}</h5>
-              <h6>{event.start_time.slice(0,24)}</h6>
+              <h6>{moment(event.start_time).format('LLLL')}</h6>
             </div>
             )
           } else {
@@ -31,7 +31,7 @@ export default class Results extends React.Component {
               <img onClick={this.props.onSelectEvent} className="nullEventImage"  src='http://i.imgur.com/TAxW4dQ.png' alt={event.id}/>
             </div>
               <h5>{event.title.slice(0,25)}</h5>
-              <h6>{event.start_time.slice(0,24)}</h6>
+              <h6>{moment(event.start_time).format('LLLL')}</h6>
             </div>
             )
           }

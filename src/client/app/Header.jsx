@@ -28,7 +28,7 @@ export default class Header extends React.Component {
   bro(event){
     event.preventDefault()
     ajax.flakeBot(localStorage.user_id);
-    this.props.onNotification()
+    this.props.onAddAlert()
   }
 
   clearLocalStorage(event){

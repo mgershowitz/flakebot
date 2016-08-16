@@ -10,7 +10,9 @@ import SideResults          from './SideResults.jsx'
 import SelectedResults      from './SelectedResults.jsx'
 import ajax                 from '../helpers/ajaxAdapter.js'
 import util                 from '../helpers/util.js'
-import { Notification }     from 'react-notification';
+const ReactToastr = require("react-toastr");
+const {ToastContainer} = ReactToastr; // This is a React Element.
+const ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 const jwtDecode = require('jwt-decode');
 
 
@@ -214,9 +216,18 @@ export default class SearchContainer extends React.Component {
   }
 
   closeNotification(){
-    this.set({
-      notification:flase
+    this.setState({
+      notification:false
     })
+  }
+
+  addAlert () {
+    this.refs.container.success(
+      "Let's see if he's coming to your next event.",
+      "Your message has been sent to FlakeBot!!", {
+      timeOut: 4000,
+      extendedTimeOut: 4000
+    });
   }
 
   render(){
@@ -229,13 +240,13 @@ export default class SearchContainer extends React.Component {
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
             showUserEvents={this.displayUserEvents.bind(this)}
-            onNotification={this.notificationOn.bind(this)} />
-            <Notification
-            isActive={this.state.notification}
-            message={"Message sent to flakeBot"}
-            action={'close'}
-            onClick={this.closeNotification.bind(this)}
-            />
+            onAddAlert={this.addAlert.bind(this)} />
+            <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
             <SideResults
             onSelectEvent={this.selectEventDetail.bind(this)}
             events={this.state.results}
@@ -257,13 +268,13 @@ export default class SearchContainer extends React.Component {
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
             showUserEvents={this.displayUserEvents.bind(this)}
-            onNotification={this.notificationOn.bind(this)} />
-             <Notification
-            isActive={this.state.notification}
-            message={"Message sent to flakeBot"}
-            action={'close'}
-            onClick={this.closeNotification.bind(this)}
-            />
+            onAddAlert={this.addAlert.bind(this)} />
+             <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
             <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -287,13 +298,13 @@ export default class SearchContainer extends React.Component {
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
             showUserEvents={this.displayUserEvents.bind(this)}
-            onNotification={this.notificationOn.bind(this)} />
-             <Notification
-            isActive={this.state.notification}
-            message={"Message sent to flakeBot"}
-            action={'close'}
-            onClick={this.closeNotification.bind(this)}
-            />
+            onAddAlert={this.addAlert.bind(this)} />
+             <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
             <MyEvents
             onSelectEvent={this.selectSavedEventDetail.bind(this)}
             events={this.state.results}
@@ -315,13 +326,13 @@ export default class SearchContainer extends React.Component {
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
             showUserEvents={this.displayUserEvents.bind(this)}
-            onNotification={this.notificationOn.bind(this)} />
-             <Notification
-            isActive={this.state.notification}
-            message={"Message sent to flakeBot"}
-            action={'close'}
-            onClick={this.closeNotification.bind(this)}
-            />
+            onAddAlert={this.addAlert.bind(this)} />
+             <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
           <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -345,13 +356,13 @@ export default class SearchContainer extends React.Component {
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
             showUserEvents={this.displayUserEvents.bind(this)}
-            onNotification={this.notificationOn.bind(this)} />
-             <Notification
-            isActive={this.state.notification}
-            message={"Message sent to flakeBot"}
-            action={'close'}
-            onClick={this.closeNotification.bind(this)}
-            />
+            onAddAlert={this.addAlert.bind(this)} />
+             <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
           <SearchInitial
             onCreateUser={this.createUser.bind(this)}
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}

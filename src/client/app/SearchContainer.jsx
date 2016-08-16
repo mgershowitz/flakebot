@@ -10,6 +10,7 @@ import SideResults          from './SideResults.jsx'
 import SelectedResults      from './SelectedResults.jsx'
 import ajax                 from '../helpers/ajaxAdapter.js'
 import util                 from '../helpers/util.js'
+import { Notification }     from 'react-notification';
 const jwtDecode = require('jwt-decode');
 
 
@@ -28,7 +29,8 @@ export default class SearchContainer extends React.Component {
       selected: false,
       user: false,
       savedSelected: false,
-      flakeBot: false
+      flakeBot: false,
+      notification: false
     }
   }
 
@@ -205,6 +207,18 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  notificationOn(){
+    this.setState({
+      notification:true
+    })
+  }
+
+  closeNotification(){
+    this.set({
+      notification:flase
+    })
+  }
+
   render(){
       if(this.state.selected){
       //Page if single event is selected
@@ -214,7 +228,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onNotification={this.notificationOn.bind(this)} />
+            <Notification
+            isActive={this.state.notification}
+            message={"Message sent to flakeBot"}
+            action={'close'}
+            onClick={this.closeNotification.bind(this)}
+            />
             <SideResults
             onSelectEvent={this.selectEventDetail.bind(this)}
             events={this.state.results}
@@ -235,7 +256,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onNotification={this.notificationOn.bind(this)} />
+             <Notification
+            isActive={this.state.notification}
+            message={"Message sent to flakeBot"}
+            action={'close'}
+            onClick={this.closeNotification.bind(this)}
+            />
             <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -258,7 +286,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onNotification={this.notificationOn.bind(this)} />
+             <Notification
+            isActive={this.state.notification}
+            message={"Message sent to flakeBot"}
+            action={'close'}
+            onClick={this.closeNotification.bind(this)}
+            />
             <MyEvents
             onSelectEvent={this.selectSavedEventDetail.bind(this)}
             events={this.state.results}
@@ -279,7 +314,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onNotification={this.notificationOn.bind(this)} />
+             <Notification
+            isActive={this.state.notification}
+            message={"Message sent to flakeBot"}
+            action={'close'}
+            onClick={this.closeNotification.bind(this)}
+            />
           <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -302,7 +344,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onNotification={this.notificationOn.bind(this)} />
+             <Notification
+            isActive={this.state.notification}
+            message={"Message sent to flakeBot"}
+            action={'close'}
+            onClick={this.closeNotification.bind(this)}
+            />
           <SearchInitial
             onCreateUser={this.createUser.bind(this)}
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}

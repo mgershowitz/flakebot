@@ -10,6 +10,10 @@ import SideResults          from './SideResults.jsx'
 import SelectedResults      from './SelectedResults.jsx'
 import ajax                 from '../helpers/ajaxAdapter.js'
 import util                 from '../helpers/util.js'
+const ReactToastr = require("react-toastr");
+const {ToastContainer} = ReactToastr; // This is a React Element.
+const ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+const jwtDecode = require('jwt-decode');
 
 
 export default class SearchContainer extends React.Component {
@@ -27,7 +31,8 @@ export default class SearchContainer extends React.Component {
       selected: false,
       user: false,
       savedSelected: false,
-      flakeBot: false
+      flakeBot: false,
+      notification: false
     }
   }
 
@@ -166,18 +171,20 @@ export default class SearchContainer extends React.Component {
       username: newUser.username,
       password: newUser.password
     }
+    console.log(user)
     ajax.createNewUser(newUser).then(
       setTimeout(()=>{
-      ajax.loginUser(user).then( user => {
-          // console.log(user)
-          localStorage.setItem('token', user.token)
-          localStorage.setItem('username', user.username)
-          if(user.success){
-            this.userLogIn()
-          } else {
-            thing.reset()
-          }
-        })}, 500)
+        ajax.loginUser(user).then( user => {
+        console.log(user)
+        localStorage.setItem('token', user.token)
+        localStorage.setItem('user_id', jwtDecode(user.token).user_id)
+        console.log(jwtDecode(user.token).user_id)
+        if(user.success){
+          this.userLogIn()
+        } else {
+          thing.reset()
+        }
+      })}, 500)
       )
     }
 
@@ -202,6 +209,27 @@ export default class SearchContainer extends React.Component {
     })
   }
 
+  notificationOn(){
+    this.setState({
+      notification:true
+    })
+  }
+
+  closeNotification(){
+    this.setState({
+      notification:false
+    })
+  }
+
+  addAlert () {
+    this.refs.container.success(
+      "Let's see if he's coming to your next event.",
+      "Your message has been sent to FlakeBot!!", {
+      timeOut: 4000,
+      extendedTimeOut: 4000
+    });
+  }
+
   render(){
       if(this.state.selected){
       //Page if single event is selected
@@ -211,7 +239,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onAddAlert={this.addAlert.bind(this)} />
+            <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
             <SideResults
             onSelectEvent={this.selectEventDetail.bind(this)}
             events={this.state.results}
@@ -232,7 +267,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onAddAlert={this.addAlert.bind(this)} />
+             <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
             <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -255,7 +297,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onAddAlert={this.addAlert.bind(this)} />
+             <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
             <MyEvents
             onSelectEvent={this.selectSavedEventDetail.bind(this)}
             events={this.state.results}
@@ -276,7 +325,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onAddAlert={this.addAlert.bind(this)} />
+             <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
           <SearchDetail
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}
             onUpdateKeywordSearch={this.handleUpdateKeywordSearch.bind(this)}
@@ -299,7 +355,14 @@ export default class SearchContainer extends React.Component {
             user={this.state.user}
             userLoggedIn={this.userLogIn.bind(this)}
             userLoggedOut={this.userLogOut.bind(this)}
-            showUserEvents={this.displayUserEvents.bind(this)} />
+            showUserEvents={this.displayUserEvents.bind(this)}
+            onAddAlert={this.addAlert.bind(this)} />
+             <div>
+        <ToastContainer ref="container"
+                        toastMessageFactory={ToastMessageFactory}
+                        className="toast-top-right" />
+
+      </div>
           <SearchInitial
             onCreateUser={this.createUser.bind(this)}
             onUpdateLocationSearch={this.handleUpdateLocationSearch.bind(this)}

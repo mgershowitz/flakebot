@@ -427,3 +427,9 @@ label > .label-body {
   margin-left: .5rem;
   font-weight: normal; }
 
+.notificationBox {
+  bottom: 62rem;
+  left: 108rem;
+  /*top: 2rem;*/
+  /*right: 1rem;*/
+}

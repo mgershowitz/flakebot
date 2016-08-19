@@ -18,6 +18,7 @@ export default class SearchInitial extends React.Component {
         <div className="signUp">
           <h2>Be friends with FlakeBot!</h2>
           <p>FlakeBot is one of the coolest bots on the planet. He always knows the most fun things to do in every city around the world. And don't worry, he ALWAYS shows up. It's going to be a blast</p>
+          <p>Feel free to test the app with username and password flakebot and flakebot</p>
           <form action="" onSubmit={this.props.onCreateUser} >
             <input type="text" name="username" placeholder="New Username"/><br/>
             <input type="text" name="email" placeholder="New Email"/><br/>

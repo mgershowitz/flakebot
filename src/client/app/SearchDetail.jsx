@@ -12,30 +12,18 @@ export default class SearchDetail extends React.Component {
              <tr>
               <td>
                 <label htmlFor="location">Location</label>
-              {/*</td>
-             </tr>
-             <tr>
-              <td>*/}
                 <input type="text" placeholder="Search by Location" onChange={this.props.onUpdateLocationSearch}/>
               </td>
              </tr>
              <tr>
               <td>
                 <label htmlFor="keywords">Keywords</label>
-               {/*</td>
-             </tr>
-             <tr>
-              <td>*/}
                 <input type="text" placeholder="Search by Keywords" onChange={this.props.onUpdateKeywordSearch}/>
               </td>
              </tr>
              <tr>
               <td>
                 <label htmlFor="when">When</label>
-              {/*</td>
-             </tr>
-             <tr>
-              <td>*/}
                 <select onChange={this.props.onUpdateTimeSearch} name="time" id="">
                   <option value="Today">Today</option>
                   <option value="This Week">This Week</option>

@@ -17,7 +17,7 @@ export default class SearchInitial extends React.Component {
         </div>
         <div className="signUp">
           <h2>Be friends with FlakeBot!</h2>
-          <p>Feel free to test with username and password flakebot and flakebot</p>
+          <p>Feel free to test with username and password flakebot and flakebot *sms messaging will not work with test login</p>
           <form action="" onSubmit={this.props.onCreateUser} >
             <input type="text" name="username" placeholder="New Username"/><br/>
             <input type="text" name="email" placeholder="New Email"/><br/>

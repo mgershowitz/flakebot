@@ -10,10 +10,10 @@ import SideResults          from './SideResults.jsx'
 import SelectedResults      from './SelectedResults.jsx'
 import ajax                 from '../helpers/ajaxAdapter.js'
 import util                 from '../helpers/util.js'
-const ReactToastr = require("react-toastr");
-const {ToastContainer} = ReactToastr; // This is a React Element.
-const ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
-const jwtDecode = require('jwt-decode');
+const ReactToastr           = require("react-toastr");
+const {ToastContainer}      = ReactToastr; // This is a React Element.
+const ToastMessageFactory   = React.createFactory(ReactToastr.ToastMessage.animation);
+const jwtDecode             = require('jwt-decode');
 
 
 export default class SearchContainer extends React.Component {

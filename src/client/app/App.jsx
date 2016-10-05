@@ -6,6 +6,9 @@ import SearchContainer    from './SearchContainer.jsx'
 
 export default class App extends React.Component{
 
+componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
 
     render(){
         return(

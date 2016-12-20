@@ -7,6 +7,7 @@ module.exports = {
   getEvents(req,res,next) {
     request({
       url:'http://api.eventful.com/json/events/search',
+      headers: 'X-AMC-Vendor-Key: 31dd5ae1-9562-4b1f-b718-f8b1a3a97492',
       method:'get',
       qs: {
         app_key: apikey,

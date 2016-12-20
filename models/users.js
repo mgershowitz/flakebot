@@ -36,7 +36,6 @@ module.exports = {
         }else{
           res.error = true
         }
-        // console.log( 'the user '+ res.user.username )
         next()
 
       })
@@ -57,7 +56,6 @@ module.exports = {
           returning *;`, [req.body.username, req.body.email, req.body.phone, hash]
         )
         .then( newUser=> {
-          // console.log( newUser )
           res.user = newUser;
           next()
         })
@@ -99,7 +97,6 @@ module.exports = {
         returning *;`, [uID, req.body.event_id, req.body.title, req.body.image, req.body.event_time]
       )
       .then(saved_events => {
-        console.log('Added event successfully');
         res.rows = saved_events;
         next()
       })

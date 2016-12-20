@@ -32,8 +32,25 @@ app.use( '/api/users', userRoute );
 app.use( '/events', eventsRoute )
 app.use( '/flakebot', flakebotRoute);
 
+app.use(function redirectSite(req, res, next) {
+  // Don't allow user to hit Heroku now that we have a domain
+   let host = req.headers.referer;
+  console.log(req.headers.referer)
+
+  if (host === 'http://localhost:3000/') {
+    console.log('should be redirecting')
+    // console.log(res.redirect(301, 'https://www.ereverse.com' + req.path))
+    res.redirect(301,'http://google.com');
+
+  }
+  return next();
+});
+
 scheduler.start()
 
 app.listen( port, () => {
   console.log( 'Server maxin\' and relaxin\' at ', port )
 } )
+
+
+

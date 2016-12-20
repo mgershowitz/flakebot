@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "![](https://i.imgflip.com/63l1k.gif)",
   "main": "server.js",
+  "engines": {
+    "node": "7.0.0"
+  },
   "private": true,
   "scripts": {
     "clean": "rm -rf dist",

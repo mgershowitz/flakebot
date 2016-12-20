@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS saved_events;
+ DROP TABLE IF EXISTS saved_events;
 DROP TABLE if EXISTS users CASCADE;
 
 

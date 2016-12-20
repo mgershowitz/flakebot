@@ -34,6 +34,8 @@ export default class SearchContainer extends React.Component {
       flakeBot: false,
       notification: false
     }
+    this.handleUpdateSearch = this.handleUpdateSearch.bind(this)
+
   }
 
    componentDidMount(){
@@ -265,7 +267,7 @@ export default class SearchContainer extends React.Component {
           <div>
             <Header
             user={this.state.user}
-            userLoggedIn={this.userLogIn.bind(this)}
+            userLoggedIn={this.handleUpdateSearch}
             userLoggedOut={this.userLogOut.bind(this)}
             showUserEvents={this.displayUserEvents.bind(this)}
             onAddAlert={this.addAlert.bind(this)} />

@@ -7,6 +7,7 @@ export default class MainA extends Component {
   render() {
     return (
       <div>
+        <h1>Hi</h1>
         {React.cloneElement(this.props.children, this.props)}
 
         <Footer />

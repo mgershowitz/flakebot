@@ -20,7 +20,6 @@ app.set( 'superSecret', 'my super secret word' )
 
 app.use( morgan( DEV ? 'dev' : 'common') )
 
-app.use( express.static( path.join( __dirname, 'dist' ) ) )
 
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded( {extended: false} ) );
@@ -32,18 +31,21 @@ app.use( '/api/users', userRoute );
 app.use( '/events', eventsRoute )
 app.use( '/flakebot', flakebotRoute);
 
-app.use(function redirectSite(req, res, next) {
+app.use('/',(req, res, next) => {
   // Don't allow user to hit Heroku now that we have a domain
-   let host = req.headers.referer;
-  console.log(req.headers.referer)
+   let host = req.headers.host;
+  // console.log(host)
 
-  if (host === 'http://localhost:3000/') {
-    console.log('should be redirecting')
+  if (host === 'localhost:3000') {
+  //   console.log('should be redirecting')
     // console.log(res.redirect(301, 'https://www.ereverse.com' + req.path))
-    res.redirect(301,'http://google.com');
-
+    // res.redirect(301,'https://www.ereverse.com');
+    res.send('test')
+    return next();
+  } else {
+    app.use( express.static(path.join(__dirname, 'dist')))
+    return next()
   }
-  return next();
 });
 
 scheduler.start()

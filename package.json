@@ -26,6 +26,7 @@
   "homepage": "https://github.com/mgershowitz/flakebot#readme",
   "dependencies": {
     "bcrypt": "^0.8.7",
+    "bcryptjs": "^2.4.0",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "cron": "^1.1.0",

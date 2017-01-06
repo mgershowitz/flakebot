@@ -1,24 +1,53 @@
-import React              from 'react'
-import ReactDOM           from 'react-dom'
-import Header             from './Header.jsx'
-import Footer             from './Footer.jsx'
-import SearchContainer    from './SearchContainer.jsx'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from './actions/actionCreators';
+import MainA as './MainA'
 
-export default class App extends React.Component{
+function mapStateToProps(state) {
+  return {
 
-componentDidUpdate() {
-    window.scrollTo(0, 0);
   }
-
-    render(){
-        return(
-          <container>
-              <div>
-                <SearchContainer />
-                <Footer />
-              </div>
-          </container>
-        )
-    }
 }
-ReactDOM.render(<App />, document.querySelector('#container'))
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch)
+}
+
+const App = connect(mapStateToProps, mapDispatchToProps)(MainA);
+
+export default App;
+
+
+
+
+
+
+
+
+
+// import React              from 'react'
+// import ReactDOM           from 'react-dom'
+// import Header             from './Header.jsx'
+// import Footer             from './Footer.jsx'
+// import SearchContainer    from './SearchContainer.jsx'
+
+// export default class App extends React.Component{
+
+// componentDidUpdate() {
+//     window.scrollTo(0, 0);
+//   }
+
+//     render(){
+//         return(
+//           <container>
+//               <div>
+
+//                 <SearchContainer />
+
+//                 <Footer />
+//               </div>
+//           </container>
+//         )
+//     }
+// }
+// ReactDOM.render(<App />, document.querySelector('#container'))

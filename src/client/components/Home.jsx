@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import styles from '../css/styles.css';
 
-export default class SearchInitial extends React.Component {
+export default class Home extends Component {
   render(){
-
     return (
       <div>
-        <div className="search">
+        <div className={styles["search"]}>
           <h2>Search by City or Keyword!</h2>
           <p>Find fun events to do around your city</p>
-          <div className="imgContainer"></div>
+          <div className={styles["imgContainer"]}></div>
           <form action="" onSubmit={this.props.onSubmitSearch} >
             <input type="text" placeholder="Search by Location" onChange={this.props.onUpdateLocationSearch}/>
             <input type="text" placeholder="Search by Keywords" onChange={this.props.onUpdateKeywordSearch}/>
             <input type="submit" value="Search"/>
           </form>
         </div>
-        <div className="signUp">
+        <div className={styles["signUp"]}>
           <h2>Be friends with FlakeBot!</h2>
           <p>FlakeBot is one of the coolest bots on the planet. He always knows the most fun things to do in every city around the world. And don't worry, he ALWAYS shows up. It's going to be a blast</p>
           <form action="" onSubmit={this.props.onCreateUser} >

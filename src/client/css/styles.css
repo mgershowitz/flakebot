@@ -29,13 +29,16 @@ body {
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   width: 107%;
   background-color: #009688;
   height: 10%;
   top: 0;
-  z-index: 1;
-  box-shadow: 3px 3px 3px grey;
+  left: 0;
+  /*z-index: 1;*/
+  /*box-shadow: 3px 3px 3px grey;*/
 }
 
 .header h1 {
@@ -269,6 +272,7 @@ body {
 }
 
 .signIn, .signedIn {
+  display: flex;
   position: absolute;
   top: 5%;
   right: 10%;

@@ -1,6 +1,18 @@
-'use strict'
-import App from './App.jsx';
-require('bootstrap/dist/css/bootstrap.css');
-require('../css/styles.css')
-require('../css/animate.css')
-require('../css/reactToastr.css')
+import React, { Component } from 'react';
+import { Link } from 'react-router';
+
+import Footer from './Footer.jsx'
+import Header from './Header.jsx'
+
+export default class Main extends Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        {React.cloneElement(this.props.children, this.props)}
+
+        <Footer />
+      </div>
+    )
+  }
+}

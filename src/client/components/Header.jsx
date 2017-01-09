@@ -45,66 +45,92 @@ export default class Header extends React.Component {
     event.target.reset()
   }
 
-  render(){
-    if(!this.props.user){
+render(){
     return (
-      <div className={styles=[".header"]}>
+      <div className={styles["header"]}>
         <h1>FlakeBot</h1>
-        <img className={styles=[".fBNoUser"]} src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
-        <div className={styles=['.login']}>
-          <form action="post" className={styles=["signIn"]} onSubmit={this.handleSubmit.bind(this)}>
+        <img className={styles["fBNoUser"]} src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
+        <div className={styles['login']}>
+          <form action="post" className={styles["signIn"]} onSubmit={this.handleSubmit.bind(this)}>
             <table>
               <tbody>
                 <tr>
-                  <td>
-                    <label htmlFor="username">username</label>
-                  </td>
-                  <td>
-                    <label htmlFor="password">password</label>
-                  </td>
+                  <td><label htmlFor="username">username</label></td>
+                  <td><label htmlFor="password">password</label></td>
                 </tr>
                 <tr>
-                  <td>
-                    <input type="text" name="username" placeholder="enter username"/>
-                  </td>
-                  <td>
-                    <input type="password" name="password" placeholder="enter password"/>
-                  </td>
-                  <td>
-                    <button>Sign In</button>
-                  </td>
+                  <td><input type="text" name="username" placeholder="enter username"/></td>
+                  <td><input type="password" name="password" placeholder="enter password"/></td>
+                  <td><button>Sign In</button></td>
                 </tr>
               </tbody>
             </table>
-
           </form>
         </div>
       </div>
     )
-  } else {
-    return (
-      <div className={styles=[".headerUser"]}>
-        <h1>FlakeBot</h1>
-        <img className={styles=[".fBUser"]} src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20(Front).gif" alt=""/>
-
-          <table className={styles=['.signedIn']}>
-            <tbody>
-              <tr>
-                <td>
-                  <button onClick={this.bro.bind(this)}>Talk to FlakeBot</button>
-                </td>
-                <td>
-                  <button onClick={this.myEvents.bind(this)}>My Events</button>
-                </td>
-                <td>
-                  <button onClick={this.clearLocalStorage.bind(this)}>Log Out</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
-    )
-  }
   }
 }
+  // render(){
+  //   if(!this.props.user){
+  //   return (
+  //     <div className={styles[".header">
+  //       <h1>FlakeBot</h1>
+  //       <img className=".fBNoUser" src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
+  //       <div className='.login'>
+  //         <form action="post" className="signIn" onSubmit={this.handleSubmit.bind(this)}>
+  //           <table>
+  //             <tbody>
+  //               <tr>
+  //                 <td>
+  //                   <label htmlFor="username">username</label>
+  //                 </td>
+  //                 <td>
+  //                   <label htmlFor="password">password</label>
+  //                 </td>
+  //               </tr>
+  //               <tr>
+  //                 <td>
+  //                   <input type="text" name="username" placeholder="enter username"/>
+  //                 </td>
+  //                 <td>
+  //                   <input type="password" name="password" placeholder="enter password"/>
+  //                 </td>
+  //                 <td>
+  //                   <button>Sign In</button>
+  //                 </td>
+  //               </tr>
+  //             </tbody>
+  //           </table>
+
+  //         </form>
+  //       </div>
+  //     </div>
+  //   )
+  // } else {
+  //   return (
+  //     <div className=".headerUser">
+  //       <h1>FlakeBot</h1>
+  //       <img className=".fBUser" src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20(Front).gif" alt=""/>
+
+  //         <table className='.signedIn'>
+  //           <tbody>
+  //             <tr>
+  //               <td>
+  //                 <button onClick={this.bro.bind(this)}>Talk to FlakeBot</button>
+  //               </td>
+  //               <td>
+  //                 <button onClick={this.myEvents.bind(this)}>My Events</button>
+  //               </td>
+  //               <td>
+  //                 <button onClick={this.clearLocalStorage.bind(this)}>Log Out</button>
+  //               </td>
+  //             </tr>
+  //           </tbody>
+  //         </table>
+  //     </div>
+  //   )
+  // }
+  // }
+
 

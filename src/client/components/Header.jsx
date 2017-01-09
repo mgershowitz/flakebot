@@ -1,5 +1,6 @@
 import React from 'react';
 import ajax  from '../helpers/ajaxAdapter.js'
+import styles from '../css/styles.css'
 const jwtDecode = require('jwt-decode');
 // const flakeBot = require('../../../models/flakebot')
 
@@ -47,11 +48,11 @@ export default class Header extends React.Component {
   render(){
     if(!this.props.user){
     return (
-      <div className="header">
+      <div className={styles=[".header"]}>
         <h1>FlakeBot</h1>
-        <img className="fBNoUser" src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
-        <div className='login'>
-          <form action="post" className="signIn" onSubmit={this.handleSubmit.bind(this)}>
+        <img className={styles=[".fBNoUser"]} src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
+        <div className={styles=['.login']}>
+          <form action="post" className={styles=["signIn"]} onSubmit={this.handleSubmit.bind(this)}>
             <table>
               <tbody>
                 <tr>
@@ -82,11 +83,11 @@ export default class Header extends React.Component {
     )
   } else {
     return (
-      <div className="headerUser">
+      <div className={styles=[".headerUser"]}>
         <h1>FlakeBot</h1>
-        <img className="fBUser" src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20(Front).gif" alt=""/>
+        <img className={styles=[".fBUser"]} src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20(Front).gif" alt=""/>
 
-          <table className='signedIn'>
+          <table className={styles=['.signedIn']}>
             <tbody>
               <tr>
                 <td>

@@ -4,17 +4,10 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index'
+import myEvents from './data/events'
 
 const defaultState = {
-      location: "",
-      keyword: "",
-      time: 'Today',
-      results: [],
-      singleResult: [],
-      userEvents:[],
-      user: false,
-      flakeBot: false,
-      notification: false
+      myEvents: myEvents,
       // searched: false,
       // selected: false,
       // savedSelected: false,

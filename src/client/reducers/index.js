@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-// import posts from './posts';
+import myEvents from './myEvents';
 // import comments from './comments';
 
-const rootReducer = combineReducers({routing: routerReducer});
+const rootReducer = combineReducers({myEvents, routing: routerReducer});
 
 export default rootReducer;
 

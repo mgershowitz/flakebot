@@ -8,7 +8,7 @@ export default class MainA extends Component {
     return (
       <div>
         <h1>Hi</h1>
-        {React.cloneElement(this.props.children, this.props)}
+        {/*{React.cloneElement(this.props.children, this.props)}*/}
 
         <Footer />
       </div>

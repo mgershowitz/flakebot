@@ -1,8 +1,16 @@
-import React     from 'react'
+import React, { Component }     from 'react'
+import SideResults from './SideResults.jsx'
 const moment     = require('moment')
-export default class Results extends React.Component {
+
+
+
+
+export default class Results extends Component {
   render(){
     return(
+    <div>
+
+    <SideResults />
     <div className="eventResults">
       <div className="mainHeader">
         <img className='bannerFlake' src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(Front).gif" alt=""/>
@@ -11,7 +19,6 @@ export default class Results extends React.Component {
       </div>
         {this.props.events.map((event,i) => {
             if(event.image){
-            // console.log('true')
             return(
             <div className="infoContainer" key={i}>
             <div className="imageContainer"
@@ -23,7 +30,6 @@ export default class Results extends React.Component {
             </div>
             )
           } else {
-            // console.log('false')
             return(
             <div className="infoContainer" key={i}>
             <div className="imageContainer"
@@ -37,6 +43,7 @@ export default class Results extends React.Component {
           }
           })
         }
+    </div>
     </div>
     )
   }

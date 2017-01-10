@@ -42,6 +42,7 @@ body {
 }
 
 .header h1 {
+  flex: 1;
   position: absolute;
   color: #fff;
   font-family: 'Roboto', sans-serif;

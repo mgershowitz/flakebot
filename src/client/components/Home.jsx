@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import styles from '../css/styles.css';
+import styles from '../css/homeStyles.css';
 
 export default class Home extends Component {
   render(){
     return (
-      <div>
+      <div className={styles['container']}>
         <div className={styles["search"]}>
           <h2>Search by City or Keyword!</h2>
           <p>Find fun events to do around your city</p>

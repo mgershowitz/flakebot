@@ -2,7 +2,7 @@ const myEvents = [
   {
     user: 1,
     thing:'test',
-    title: 'Caturday, in the Park',
+    title:'Caturday, in the Park',
     image:'https://dncache-mauganscorp.netdna-ssl.com/thumbseg/1427/1427690-bigthumbnail.jpg',
     time: '2016-08-16 12:05:00'
   },

@@ -49,6 +49,10 @@ app.use( '/flakebot', flakebotRoute);
 //   }
 // });
 
+app.use('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+})
+
 scheduler.start()
 
 app.listen( port, () => {

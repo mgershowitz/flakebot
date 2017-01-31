@@ -1,0 +1,105 @@
+/*header style*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 103%;
+  background-color: #009688;
+  height: 10%;
+  margin-top: -1%;
+  margin-left: -1%;
+}
+
+.title {
+  flex: 1;
+  display: inline-block;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  top: -20%;
+  height:7%;
+  margin-left: 3%;
+}
+
+.fBNoUser{
+  flex:1;
+}
+
+.signIn {
+  flex:6;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.grid{
+  display: flex;
+  margin-right: 5%;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.signIn button{
+  padding: 0 10px;
+  font-size: 9px;
+  height: 3vh;
+  line-height: 3vh;
+  margin-left: 5px;
+  margin-top: 5px;
+  background-color: #00796B;
+  color: #fff;
+}
+
+.grid div label {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 5%;
+}
+
+.grid div input {
+  margin-right: 2%;
+}
+
+.password {
+  flex: 2;
+  margin-left: 9%;
+  margin-bottom: 0;
+}
+
+.username {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.signIn div {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/*Footer Style*/
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  height: 5%;
+  background-color: #fff;
+  width: 100%;
+}
+
+.eventful-small {
+  width: 100px          !important;
+  font-size: 11px       !important;
+  line-height: 11px     !important;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1%;
+  flex: 6;
+}
+
+#myName {
+  flex:1;
+  margin-left: 1%;
+}

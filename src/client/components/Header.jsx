@@ -1,6 +1,6 @@
 import React from 'react';
 import ajax  from '../helpers/ajaxAdapter.js'
-import styles from '../css/styles.css'
+import styles from '../css/headerStyles.css'
 const jwtDecode = require('jwt-decode');
 // const flakeBot = require('../../../models/flakebot')
 
@@ -47,27 +47,25 @@ export default class Header extends React.Component {
 
 render(){
     return (
-      <div className={styles["header"]}>
-        <h1>FlakeBot</h1>
-        <img className={styles["fBNoUser"]} src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
-        <div className={styles['login']}>
-          <form action="post" className={styles["signIn"]} onSubmit={this.handleSubmit.bind(this)}>
-            <table>
-              <tbody>
-                <tr>
-                  <td><label htmlFor="username">username</label></td>
-                  <td><label htmlFor="password">password</label></td>
-                </tr>
-                <tr>
-                  <td><input type="text" name="username" placeholder="enter username"/></td>
-                  <td><input type="password" name="password" placeholder="enter password"/></td>
-                  <td><button>Sign In</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </form>
+      <header className={styles['header']}>
+        <h1 className={styles['title']}>FlakeBot</h1>
+        <div className={styles["fBNoUser"]}>
+          <img src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
         </div>
-      </div>
+        <form action="post" className={styles["signIn"]} onSubmit={this.handleSubmit.bind(this)}>
+          <span className={styles['grid']}>
+            <div>
+              <label className={styles['username']} htmlFor="username">username</label>
+              <label className={styles['password']} htmlFor="password">password</label>
+            </div>
+            <div>
+              <input type="text" name="username" placeholder="enter username"/>
+              <input type="password" name="password" placeholder="enter password"/>
+              <button>Sign In</button>
+            </div>
+          </span>
+        </form>
+      </header>
     )
   }
 }

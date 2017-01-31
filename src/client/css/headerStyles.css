@@ -76,6 +76,38 @@
   justify-content: flex-start;
 }
 
+
+/*Loggedin header*/
+
+.headerUser {
+  position: fixed;
+  width: 107%;
+  background-color: #009688;
+  height: 6%;
+  top: 0;
+  z-index: 1;
+  box-shadow: 2px 2px 2px grey;
+}
+
+
+
+.signedIn {
+  flex:6;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signIn button, .signedIn button {
+  padding: 0 10px;
+  font-size: 9px;
+  height: 3vh;
+  line-height: 3vh;
+  margin-right: 5%;
+  background-color: #00796B;
+  color: #fff;
+}
+
+
 /*Footer Style*/
 .footer {
   display: flex;

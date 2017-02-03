@@ -19,11 +19,27 @@ export default class Main extends Component {
       userEvents: myEvents,
       searched: false,
       selected: false,
-      user: false,
       savedSelected: false,
       flakeBot: false,
       notification: false
     }
+
+    this.handleSubmitSearch = this.handleSubmitSearch.bind(this)
+    this.handleUpdateTimeSearch = this.handleUpdateTimeSearch.bind(this)
+    this.handleUpdateKeywordSearch = this.handleUpdateKeywordSearch.bind(this)
+    this.handleUpdateLocationSearch = this.handleUpdateLocationSearch.bind(this)
+    this.selectEventDetail = this.selectEventDetail.bind(this)
+    this.selectSavedEventDetail = this.selectSavedEventDetail.bind(this)
+    this.returnToSearch = this.returnToSearch.bind(this)
+    this.displayUserEvents = this.displayUserEvents.bind(this)
+    this.saveEvent = this.saveEvent.bind(this)
+    this.deleteEvent = this.deleteEvent.bind(this)
+    this.createUser = this.createUser.bind(this)
+    this.userLogIn = this.userLogIn.bind(this)
+    this.userLogOut = this.userLogOut.bind(this)
+    this.notificationOn = this.notificationOn.bind(this)
+    this.closeNotification = this.closeNotification.bind(this)
+    this.addAlert= this.addAlert.bind(this)
   }
 
   componentDidMount(){
@@ -223,13 +239,25 @@ export default class Main extends Component {
       <div>
         <Header
         user={this.state.user}
-        userLoggedIn={this.userLogIn.bind(this)}
-        userLoggedOut={this.userLogOut.bind(this)}
-        showUserEvents={this.displayUserEvents.bind(this)}
-        onAddAlert={this.addAlert.bind(this)} />
+        userLoggedIn={this.userLogIn}
+        userLoggedOut={this.userLogOut}
+        showUserEvents={this.displayUserEvents}
+        onAddAlert={this.addAlert} />
 
         {this.props.children && React.cloneElement(this.props.children, {
-          state:this.state
+          state:this.state,
+          handleSubmitSearch: this.handleSubmitSearch,
+          handleUpdateTimeSearch: this.handleUpdateTimeSearch,
+          handleUpdateKeywordSearch: this.handleUpdateKeywordSearch,
+          handleUpdateLocationSearch: this.handleUpdateLocationSearch,
+          selectEventDetail: this.selectEventDetail,
+          selectSavedEventDetail: this.selectSavedEventDetail,
+          returnToSearch: this.returnToSearch,
+          saveEvent: this.saveEvent,
+          deleteEvent: this.deleteEvent,
+          createUser: this.createUser,
+          notificationOn: this.notificationOn,
+          closeNotificatio: this.closeNotification
         })}
 
         <Footer />

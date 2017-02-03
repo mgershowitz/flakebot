@@ -6,7 +6,7 @@ export default class MyEvents extends React.Component {
     return (
       <div className="searchDetail">
         <h3>My Events</h3>
-        {this.props.events.map((event,i) => {
+        {this.props.state.userEvents.map((event,i) => {
             return(
             <div className="sideContainer" key={i}>
               <img onClick={this.props.onSelectEvent} alt={event.event_id} className="sideEventImage" src={event.image}/>

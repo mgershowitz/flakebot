@@ -1,0 +1,129 @@
+# Week 3 Assessment
+
+Welcome to your first assessment! This assessment consists of short answer problems & code questions. Please write your solutions to the short answer questions and code questions into **this** markdown. If you write/test your code in an online repl or the Chrome console, make sure you copy and paste each step of your code into this markdown.
+
+Get started by **forking** this repository to your own account. Navigate into the folder `~/code/wdi/assessments` (you'll have to make an "assessments" folder) and then use `git clone` to copy the repository down to your local machine. 
+
+Feel free to use tools like the Chrome console or Repl.it to test your code. **Please work alone.**
+
+Once finished, make sure you `git add`, `git commit`, and then `git push origin master` this repository. :sparkles:
+
+---
+### Short Answer questions
+
+1. Name 3 primitive data types built in to JavaScript.
+
+
+
+2. When we talk about IDs and classes, which attribute is used to label a unique location in the HTML page?
+  1. IDs
+  2. Classes
+
+
+
+3. What does “&&”, “||” and “!” mean?
+
+
+
+4. What is the difference between == & === ?
+
+
+
+5. The following HTML can be described as having a "tree" structure. Draw a diagram which visualizes your HTML's structure.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Document</title>
+</head>
+<body>
+  <h1>My Site</h1>
+  <h3>A little bit about me</h3>
+  <p>I grew up in <a href="https://www.cityofchicago.org/city/en.html">Chicago, IL</a>.</p>
+  <p>I have <strong>2 sisters and 1 brother</strong></p>
+  <img src="images/profile.jpg" alt="A picture of me">
+  
+</body>
+</html>
+```
+
+
+
+6. Explain the difference between an **array** and an **object** literal
+
+
+
+7. Given the following code:
+
+  ```javascript
+  var darthVadar = "Luke, I am your mother?";
+
+  function lukeSkywalker(darthVadar) {
+    return darthVadar;
+  };
+  ```
+  - What will `lukeSkywalker(darthVadar);` return? Why?
+  - What will `lukeSkywalker("This is weird!");` return? Why?
+
+
+
+8. What does DOM stand for? What do we use the DOM for?
+
+
+
+---
+### Code questions
+
+1. Assign a variable to store an `object` with properties (key/value pairs) holding your name and the name of your favorite lunch spot. Write an expression using that variable that tells everyone your favorite place for lunch.
+
+  e.g. `Hi my name is Irwin. My favorite place for lunch is Shake Shack.`
+
+
+
+2. Use a ```for``` loop or the ```.forEach()``` method to calculate the sum of all **even** numbers in the given array:
+  ```javascript
+  var numbers = [1,5,8,2,2,6,9];
+  ```
+
+3. Write a function expression that accepts three **numbers** as arguments and returns the largest number
+
+
+
+4. Use this object to answer the following questions:
+
+  ```js
+  var crimefighters = {
+    turtles: ["Leonardo", "Raphael", "Michelangelo", "Donatello"],
+    rangers: {
+      red: "Jason",
+      black: "Zack",
+      yellow: "Trini",
+      blue: "Billy",
+      pink: "Kimberly",
+      green: "Tommy"
+    }
+  }
+  ```
+
+1. How many times will the following program tell you "This is not the turtle you are looking for"?
+
+  ```js
+  var i = 0
+  while (turtle !== "Michelangelo") {
+    var turtle = crimefighters.turtles[i]
+    console.log("This is not the turtle you are looking for");
+    i++
+  }
+  ```
+  
+  1. 2 times 
+  2. 3 times
+  3. 4 times 
+  4. 6 times
+2. Use JavaScript to access Donatello.
+3. Use Javascript to access the red ranger's name.
+
+
+

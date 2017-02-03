@@ -25,6 +25,10 @@ export default class Header extends Component {
     )
   }
 
+  myEvents(event){
+    console.log('this does nothing right now');
+  }
+
   bro(event){
     event.preventDefault()
     ajax.flakeBot(localStorage.user_id);
@@ -39,27 +43,32 @@ export default class Header extends Component {
   }
 
   render(){
+      if(!localStorage.token){
       return (
         <header className={styles['header']}>
           <h1 className={styles['title']}>FlakeBot</h1>
-          { !this.props.user &&
-            <div className={styles["fBNoUser"]}>
-              <img src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
-            </div>
-            <form action="post" className={styles["signIn"]} onSubmit={this.handleSubmit.bind(this)}>
-              <span className={styles['grid']}>
-                <div>
-                  <label className={styles['username']} htmlFor="username">username</label>
-                  <label className={styles['password']} htmlFor="password">password</label>
-                </div>
-                <div>
-                  <input type="text" name="username" placeholder="enter username"/>
-                  <input type="password" name="password" placeholder="enter password"/>
-                  <button>Sign In</button>
-                </div>
-              </span>
-            </form> }
-            { this.props.user &&
+          <div className={styles["fBNoUser"]}>
+            <img src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20-%20Walk%20(SW).gif" alt=""/>
+          </div>
+          <form action="post" className={styles["signIn"]} onSubmit={this.handleSubmit.bind(this)}>
+            <span className={styles['grid']}>
+              <div>
+                <label className={styles['username']} htmlFor="username">username</label>
+                <label className={styles['password']} htmlFor="password">password</label>
+              </div>
+              <div>
+                <input type="text" name="username" placeholder="enter username"/>
+                <input type="password" name="password" placeholder="enter password"/>
+                <button>Sign In</button>
+              </div>
+            </span>
+          </form>
+        </header>
+        )
+      } else {
+        return (
+          <header className={styles['header']}>
+            <h1 className={styles['title']}>FlakeBot</h1>
               <div className={styles["fBNoUser"]}>
                 <img src="http://www.videogamesprites.net/Earthbound/Party/Ness/Ness%20(Robot)%20(Front).gif" alt=""/>
               </div>
@@ -67,9 +76,10 @@ export default class Header extends Component {
                 <button onClick={this.bro.bind(this)}>Talk to FlakeBot</button>
                 <button onClick={this.myEvents.bind(this)}>My Events</button>
                 <button onClick={this.clearLocalStorage.bind(this)}>Log Out</button>
-              </span> }
-        </header>
-      )
+              </span>
+          </header>
+        )
+      }
     }
   }
 

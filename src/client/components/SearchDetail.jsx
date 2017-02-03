@@ -53,7 +53,7 @@ export default class SearchDetail extends React.Component {
              </tr>
             </tbody>
           </table>
-          <input type="submit" className={styles["myButton" ]}/>
+          <input type="submit" className={styles["myButton"]}/>
         </form>
       </div>
     )
